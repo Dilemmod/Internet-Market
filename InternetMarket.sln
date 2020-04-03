@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetMarket", "InternetMarket\InternetMarket.csproj", "{E55DF2EC-E564-4DB4-A039-F498BD83CCA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLibrary", "..\DatabaseLibrary\DatabaseLibrary\DatabaseLibrary.csproj", "{68B54329-27F5-4E80-AFB5-EC793C8FF69D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLibrary", "DatabaseLibrary\DatabaseLibrary\DatabaseLibrary.csproj", "{68B54329-27F5-4E80-AFB5-EC793C8FF69D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

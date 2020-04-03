@@ -1,0 +1,11 @@
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\bin\Debug\DatabaseLibrary.dll.config
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\bin\Debug\DatabaseLibrary.dll
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\bin\Debug\DatabaseLibrary.pdb
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\bin\Debug\EntityFramework.dll
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\bin\Debug\EntityFramework.xml
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.csprojAssemblyReference.cache
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.csproj.CopyComplete
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.dll
+D:\GitHub\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.pdb
