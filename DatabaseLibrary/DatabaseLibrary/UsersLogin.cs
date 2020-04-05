@@ -13,6 +13,5 @@ namespace DatabaseLibrary
         public string Password { get; set; }
         public string Mail { get; set; }
         public bool Admin { get; set; } = false;
-
     }
 }

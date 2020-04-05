@@ -9,3 +9,14 @@ D:\GitHub\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.csprojAssemb
 D:\GitHub\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.csproj.CopyComplete
 D:\GitHub\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.dll
 D:\GitHub\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.pdb
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\bin\Debug\DatabaseLibrary.dll.config
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\bin\Debug\DatabaseLibrary.dll
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\bin\Debug\DatabaseLibrary.pdb
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\bin\Debug\EntityFramework.dll
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\bin\Debug\EntityFramework.xml
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.csprojAssemblyReference.cache
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.csproj.CopyComplete
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.dll
+D:\GitHub\InternetMarket\DatabaseLibrary\DatabaseLibrary\obj\Debug\DatabaseLibrary.pdb

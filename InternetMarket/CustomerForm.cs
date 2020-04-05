@@ -1,14 +1,12 @@
-﻿using DatabaseLibrary;
+﻿
+using DatabaseLibrary;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace InternetMarket
@@ -22,7 +20,9 @@ namespace InternetMarket
             StandardFormSettings standartForm = new StandardFormSettings(this);
             CategorySettings();
             MouseClickSettings();
-            FillProductsTopDB();
+            // FillProductsTopDB();
+            ReadProductsTopDB("Motherboard",130);
+            //FillProductsTopDB();
 
 
         }
@@ -39,12 +39,153 @@ namespace InternetMarket
                 AccountLoginForm ac = new AccountLoginForm();
                 ac.Show();
             };
+            SearchButton.MouseClick += (s,e)=>SearchClick(Search.Text);
         }
+        public void SearchClick(string Text)
+        {
+            
+            using (M1 db = new M1())
+            {   
+                var query = from prod in db.Products.AsParallel()
+                            where Regex.IsMatch(prod.Title, Text, RegexOptions.IgnoreCase) || prod.Title == Text||prod.ProductCategory == Text
+                            select prod;
+                List<Product> pL = query.ToList();
+                if (pL.Count == 0)
+                {
+                    MessageBox.Show("Not found");
+                }
+                else
+                {
+                    var queryC = from c in db.Characteristics.AsParallel()
+                                 where c.ProductId == pL[0].Id
+                                 select c;
+                    List<Characteristic> cL = queryC.ToList();
+                    ReadProductByTitle(pL[0], cL);
+                }  
+            }
+            Search.Text = "";
+        }
+        #region DB Download
+        private void ReadProductByTitle(Product p, List<Characteristic> cL)
+        {
+            panelTop.Controls.Clear();
+            var panel = new Panel();
+            panel.Size = new Size(960, 530);
+            panel.Location = new Point(45, 45);
+            var title = new Label();
+            title.Location = new System.Drawing.Point(489, 15);
+            title.Font = new Font("Microsoft YaHei", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title.ForeColor = Color.FromArgb(45, 45, 45);
+            title.Size = new System.Drawing.Size(460, 70);
+            var picture = new PictureBox();
+            picture.Location = new System.Drawing.Point(3, 3);
+            picture.Size = new System.Drawing.Size(480, 520);
+            picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            var price = new Label();
+            price.Location = new Point(600, 470);
+            price.AutoSize = true;
+            price.Font = new Font("Microsoft YaHei", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            price.ForeColor = Color.FromArgb(45, 45, 45);
+            //price.Size = new System.Drawing.Size(102, 34);
+            var priceCHRN = new Label();
+            priceCHRN.Location = new System.Drawing.Point(720, 475);
+            priceCHRN.Text = "грн";
+            priceCHRN.Font = new Font("Microsoft YaHei", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            priceCHRN.ForeColor = Color.FromArgb(45, 45, 45);
+            priceCHRN.Size = new System.Drawing.Size(51, 27);
+            var love = new Label();
+            love.Image = Properties.Resources.Ресурс_17;
+            love.Location = new System.Drawing.Point(800, 460);
+            love.Size = new System.Drawing.Size(46, 42);
+            var basket = new Label();
+            basket.Location = new System.Drawing.Point(860, 460);
+            basket.Image = global::InternetMarket.Properties.Resources.Ресурс_16;
+            basket.Size = new System.Drawing.Size(46, 42);
+            var listBox = new ListBox();
+            listBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            listBox.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            listBox.FormattingEnabled = true;
+            listBox.Location = new System.Drawing.Point(500, 90);
+            listBox.Size = new System.Drawing.Size(440, 338);
+            //DB Data
+            picture.BackgroundImage = ImageDowloader(new Uri(p.ImageData));
+            title.Text = p.Title;
+            price.Text = (p.Price).ToString();
+
+            foreach (var item in cL)
+            {
+                listBox.Items.Add(item.CharacteristicString);
+            }
+            panel.Controls.Add(title); panel.Controls.Add(picture); panel.Controls.Add(price);
+            panel.Controls.Add(priceCHRN); panel.Controls.Add(love); panel.Controls.Add(basket);
+            panel.Controls.Add(listBox);
+            panelTop.Controls.Add(panel);
+        }
+        private void ReadProductsTopDB(string Category,int height)
+        {
+            using (M1 db = new M1())
+            {
+                var query = from prod in db.Products.AsParallel()
+                            where prod.ProductCategory == Category
+                            select prod;
+                List<Product> listProd = query.ToList();
+                int width = 30;
+                    for (int i = 0; i < 15; i++)
+                    {
+                        var panel = new Panel();
+                        panel.Size = new Size(300, 400);
+                        panel.Location = new Point(width, height);
+
+                        width += 325;
+                        width = ((i+1) % 3 == 0 ? 30 : width);
+                        height += ((i+1) % 3 == 0 ? 430 : 0);
+
+                        var title = new Label();
+                        title.Font = new Font("Microsoft YaHei", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+                        title.ForeColor = Color.FromArgb(45,45,45);
+                        title.Size = new System.Drawing.Size(300, 70);
+                        var picture = new PictureBox();
+                        picture.Location = new System.Drawing.Point(0, 70);
+                        picture.Size = new System.Drawing.Size(300, 270);
+                        picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+                        var price = new Label();
+                        price.Location = new Point(0, 350);
+                        price.AutoSize = true;
+                        price.Font = new Font("Microsoft YaHei", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+                        price.ForeColor = Color.FromArgb(45, 45, 45);
+                        //price.Size = new System.Drawing.Size(102, 34);
+                        var priceCHRN= new Label();
+                        priceCHRN.Location = new System.Drawing.Point(130, 360);
+                        priceCHRN.Text = "грн";
+                        priceCHRN.Font = new Font("Microsoft YaHei", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+                        priceCHRN.ForeColor = Color.FromArgb(45, 45, 45);
+                        priceCHRN.Size = new System.Drawing.Size(51, 27);
+                        var love = new Label();
+                        love.Image = Properties.Resources.Ресурс_17;
+                        love.Location = new System.Drawing.Point(180, 350);
+                        love.Size = new System.Drawing.Size(46, 42);
+                        var basket = new Label();
+                        basket.Location = new System.Drawing.Point(240, 350);
+                        basket.Image = global::InternetMarket.Properties.Resources.Ресурс_16;
+                        basket.Size = new System.Drawing.Size(46, 42);
+                        //DB Data
+                        picture.BackgroundImage = ImageDowloader(new Uri(listProd[i].ImageData));
+                        title.Text = listProd[i].Title;
+                        price.Text = (listProd[i].Price).ToString();
+                        //Controls
+                        panel.Controls.Add(title); panel.Controls.Add(picture); panel.Controls.Add(price);
+                        panel.Controls.Add(priceCHRN); panel.Controls.Add(love); panel.Controls.Add(basket);
+                        panelTop.Controls.Add(panel);
+                    }
+
+            }
+        }
+
         private async void FillProductsTopDB()
         {
-            //try
+            try
             {
-                using (DBInternetMarket db = new DBInternetMarket())
+                using (M1 db = new M1())
                 {
                     Product p = new Product();
                     p.Title = "Видеокарта Gigabyte GeForce RTX 2060 SUPER Gaming OC 3X 8192MB (GV-N206SGAMING OC-8GD)";
@@ -58,41 +199,30 @@ namespace InternetMarket
                     charactList.Add("Разъемы для монитора: DisplayPort x 3 (v1.4)");
                     charactList.Add("HDMI 2.0b x 1");
                     charactList.Add("Производительность: 13838");
-                    p.Characteristics = charactList;
-                    p.ImageFileName = "Images/ProductPictures/1.png";
-                    byte[] Data = PictureConverterToByteArrey("Images/ProductPictures/1.png",new Uri(@"https://img.telemart.ua/186243-380056/gigabyte-geforce-rtx-2060-super-gaming-oc-3x-8192mb-gv-n206sgaming-oc-8gd.png"));
-                    p.ImageData = Data;
+                    //p.Characteristics = charactList;
 
+                    Image image = ImageDowloader(new Uri(@"https://img.telemart.ua/186243-380056/gigabyte-geforce-rtx-2060-super-gaming-oc-3x-8192mb-gv-n206sgaming-oc-8gd.png"));
+                    MemoryStream memoryStream = new MemoryStream();
+                    image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
+                    byte[] Data = memoryStream.ToArray();
+
+                    //p.ImageData = Data;
                     db.Products.Add(p);
                     await db.SaveChangesAsync();
                 }
             }
-            //catch
+            catch
             {
-                //MessageBox.Show("Error Server");
+                MessageBox.Show("Error Server");
             }
         }
-        public byte[] PictureConverterToByteArrey(string fileName, Uri uri)
+        #endregion
+        public Image ImageDowloader(Uri uri)
         {
             WebClient client = new WebClient();
-                //f.BackgroundImage = Image.FromFile(fileName);
-            client.DownloadFile(uri, fileName);
-
-
-            /// путь к файлу для загрузки
-            //string filename = @"C:\Users\Eugene\Pictures\cats.jpg";
-            /// заголовок файла
-            //string title = "Коты";
-            /// получаем короткое имя файла для сохранения в бд
-            //string shortFileName = filename.Substring(filename.LastIndexOf('\\') + 1); // cats.jpg
-                                                                                       // массив для хранения бинарных данных файла
-            byte[] imageData;
-            using (FileStream fs = new FileStream(fileName, FileMode.Open))
-            {
-                imageData = new byte[fs.Length];
-                fs.Read(imageData, 0, imageData.Length);
-            }
-            return imageData;
+            Stream s = client.OpenRead(uri);
+            Image image = Image.FromStream(s);
+            return image;
         }
         #region Hover and Leave Settings
         public void CategorySettings()
@@ -143,7 +273,6 @@ namespace InternetMarket
             PcPanel.MouseLeave += (s, e) => CatalogLeavePanel(PcPanel);
             MonitorPanel.MouseLeave += (s, e) => CatalogLeavePanel(MonitorPanel);
             NoutbookPanel.MouseLeave += (s, e) => CatalogLeavePanel(NoutbookPanel);
-            Search.Text = (ComponentPanel.Controls.Count).ToString();
 
             SubdirectorySettings(ComponentPanel);
             SubdirectorySettings(PereferPanel);
@@ -154,20 +283,25 @@ namespace InternetMarket
         }
         private void SubdirectorySettings(Panel p)
         {
-            for (int i = 0; i<p.Controls.Count; i++)
+            for (int i = 0; i < p.Controls.Count; i++)
             {
-                p.Controls[i].MouseHover+= (s, e) =>
-                {
-                    (s as Label).Cursor = Cursors.Hand;
-                    (s as Label).BackColor = Color.FromArgb(107,143,35) ;
-                    (s as Label).ForeColor = Color.FromArgb(255, 255, 255);
-                    (s as Label).Image = Image.FromFile("Images/WhiteCursor.png");
-                };
+                p.Controls[i].MouseHover += (s, e) =>
+                 {
+                     (s as Label).Cursor = Cursors.Hand;
+                     (s as Label).BackColor = Color.FromArgb(107, 143, 35);
+                     (s as Label).ForeColor = Color.FromArgb(255, 255, 255);
+                     (s as Label).Image = Image.FromFile("Images/WhiteCursor.png");
+                 };
                 p.Controls[i].MouseLeave += (s, e) =>
                 {
                     (s as Label).BackColor = Color.FromArgb(224, 224, 224);
                     (s as Label).ForeColor = Color.FromArgb(45, 45, 45);
                     (s as Label).Image = Image.FromFile("Images/Ресурс 14.png");
+                };
+                p.Controls[i].MouseClick += (s, e) =>
+                {
+                    panelTop.Controls.Clear();
+                    ReadProductsTopDB((s as Label).Name,30);
                 };
             }
         }

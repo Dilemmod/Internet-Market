@@ -73,16 +73,6 @@ namespace InternetMarket.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Screenshot_3 {
-            get {
-                object obj = ResourceManager.GetObject("Screenshot_3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Ресурс_1 {
             get {
                 object obj = ResourceManager.GetObject("Ресурс 1", resourceCulture);

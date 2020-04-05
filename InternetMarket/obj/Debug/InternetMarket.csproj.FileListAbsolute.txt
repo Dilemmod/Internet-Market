@@ -17,3 +17,8 @@ D:\GitHub\InternetMarket\InternetMarket\bin\Debug\DatabaseLibrary.dll.config
 D:\GitHub\InternetMarket\InternetMarket\bin\Debug\EntityFramework.xml
 D:\GitHub\InternetMarket\InternetMarket\bin\Debug\EntityFramework.SqlServer.xml
 D:\GitHub\InternetMarket\InternetMarket\obj\Debug\InternetMarket.CustomerForm.resources
+D:\GitHub\InternetMarket\InternetMarket\bin\Debug\AngleSharp.dll
+D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Text.Encoding.CodePages.dll
+D:\GitHub\InternetMarket\InternetMarket\bin\Debug\AngleSharp.xml
+D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

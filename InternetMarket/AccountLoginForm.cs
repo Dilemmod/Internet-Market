@@ -40,7 +40,7 @@ namespace InternetMarket
             {
                // try
                 {
-                    using (DBInternetMarket db = new DBInternetMarket())
+                    using (M1 db = new M1())
                     {
                         UsersLogin user = new UsersLogin();
                         user.Login = registrationName.Text;
@@ -107,7 +107,7 @@ namespace InternetMarket
 
             try
             {
-                using (DBInternetMarket db = new DBInternetMarket())
+                using (M1 db = new M1())
                 {
                     var query = from user in db.UsersLogins.AsParallel()
                                 where (user.Login == loginName.Text || user.Mail == loginName.Text) && user.Password == loginPassword.Text
@@ -132,7 +132,7 @@ namespace InternetMarket
 
             try
             {
-                using (DBInternetMarket db = new DBInternetMarket())
+                using (M1 db = new M1())
                 {
                     var query = from user in db.UsersLogins.AsParallel()
                                 where user.Login == registrationName.Text || user.Mail == registrationMail.Text
