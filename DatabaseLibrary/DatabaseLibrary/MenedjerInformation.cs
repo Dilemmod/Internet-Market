@@ -9,8 +9,9 @@ namespace DatabaseLibrary
     public class MenedjerInformation
     {
         public int Id { get; set; }
-        public int DataOfBirth { get; set; }
+        public string DataOfBirth { get; set; }
         public string Address { get; set; }
+        public string PhoneNumber { get; set; }
         public string Status { get; set; }
         public string FullName { get; set; }
         public int? UserLoginId { get; set; }

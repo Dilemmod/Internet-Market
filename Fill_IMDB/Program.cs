@@ -7,7 +7,7 @@ using ParserTelmart;
 using System.Drawing;
 
 
-namespace Fill_M1
+namespace Fill_M3
 {
     class Program
     {
@@ -28,18 +28,18 @@ namespace Fill_M1
         }
         public static async void FillDataBase()
         {
-            using (M1 db = new M1())
+            using (M3 db = new M3())
             {
                 List<Product> productList = new List<Product>();
                 var parser = new Parser();
-                var result = parser.GetInfo("https://telemart.ua/videocard/").Result;
+                var result = parser.GetInfo("https://telemart.ua/motherboard/").Result;
                 try
                 {
                     for (int i = 0; i < result.Title.Count; i++)
                     {
                         Product p = new Product();
                         //Categoty
-                        p.ProductCategory = "Videocard";
+                        p.ProductCategory = "otherboard";
                         //p.ProductSubCategory = "Motherboard";
                         //Manufacture
                         // p.ProductManufacturer = "All";
@@ -48,19 +48,19 @@ namespace Fill_M1
                         string clear = regex.Replace(result.Price[i], "");
                         regex = new Regex(@"\s+");
                         clear = regex.Replace(clear, "");
-                        p.Price = Convert.ToInt32(clear);
+                        p.Price = clear;
                         //Reference on image
                         p.ImageData = result.Images[i];
                         //Characteristics
                         string[] s = Regex.Split(result.Characteristics[i], "</div>");
                         s = Regex.Split(s[1], "<br>");
                         List<Characteristic> listCharact = new List<Characteristic>();
-                        foreach (var item1 in s)
+                        foreach (var iteM3 in s)
                         {
                             Characteristic ch = new Characteristic();
                             string target = "";
                             regex = new Regex(@"<[^>]*>");
-                            string withoutTags = regex.Replace(item1, target);
+                            string withoutTags = regex.Replace(iteM3, target);
                             regex = new Regex(@"^\s+");
                             clear = regex.Replace(withoutTags, target);
                             ch.CharacteristicString = clear;

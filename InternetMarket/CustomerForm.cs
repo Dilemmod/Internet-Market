@@ -14,9 +14,11 @@ namespace InternetMarket
     public partial class CustomerForm : Form
     {
         List<Product> basketList = new List<Product>();
-        public CustomerForm()
+        CustomerInformation custumerInfo = new CustomerInformation();
+        public CustomerForm(CustomerInformation custumerInfo)
         {
             InitializeComponent();
+            this.custumerInfo = custumerInfo;
             //Border,Size,Location Form
             StandardFormSettings standartForm = new StandardFormSettings(this);
             this.BackColor = Color.FromArgb(255, 255, 255);
@@ -27,18 +29,95 @@ namespace InternetMarket
             MouseClickSettings();
             ReadProductsTopDB("Videocard", 130);
         }
+        #region UserData
+        private void CustumerDataPanelView()
+        {
+            dateTimeBirth.MinDate = new DateTime(1800,1,1);
+            dateTimeBirth.MaxDate = new DateTime(2015, 1, 1);
+            dateTimeBirth.Value = new DateTime(2000, 1, 1);
+            if (custumerInfo.ContactFio != null)
+            {
+                string[] fioArrey = custumerInfo.ContactFio.Split(',');
+                textBoxFamily.Text = fioArrey[0];
+                textBoxName.Text = fioArrey[1];
+                textBoxDad.Text = fioArrey[2];
+            }
+            //if (userData.Phone != 0)
+            {
+                //textBoxPhoneNumber.Text = userData.Phone;
+            }
+            if (custumerInfo.Address != null)
+            {
+                textBoxAddres.Text = custumerInfo.Address;
+            }
+           // if (userData.DataOfBirth != null)
+            {
+                //dateTimeBirth.Value = userData.DataOfBirth;
+            }
+            SaveCustumerInformation.MouseClick += (s, e) => SaveCustumerInformationMouseClick(custumerInfo);
+        }
+        private async void SaveCustumerInformationMouseClick(CustomerInformation userData)
+        { 
+            using (M3 db = new M3())
+            {
+                CustomerInformation custumerI = db.CustomersInformations.FirstOrDefault(cInfo => cInfo.Id == userData.Id);
+                
+                string pattern = @"^[А-Яа-я]{1}[а-я]{3,20}$";
+                if (Regex.IsMatch(textBoxFamily.Text, pattern) || Regex.IsMatch(textBoxName.Text, pattern) || Regex.IsMatch(textBoxDad.Text, pattern))
+                    custumerI.ContactFio = textBoxFamily.Text+"," + textBoxName.Text+"," + textBoxDad.Text;
+                else if (custumerI.ContactFio==null&&(textBoxFamily.Text.Length!=0 || textBoxName.Text.Length != 0 || textBoxDad.Text.Length != 0))
+                     MessageBox.Show("Для изменения Имени,Фамилии или Отчества нужно чтобы все эти поля были заполнены и имели вид обычных слов ");
+                pattern = @"^[А-Яа-я]{1}[а-я]{1}[,а-я]{1}([а-я]{0,1})?([,а-я]{0,1})?([а-я]{0,11})?([,]{0,1})? [А-Яа-я]{1}[а-я]{1,19} [0-9а-я]{1}.{1,2}([,0-9а-я]{0,1})?(.{0,1})?([0-9]{0,1})?([,0-9]{0,1})?([0-9]{0,1})?([,]{0,1})? [0-9а-я]{1,2}([.]{0,1})?( [0-9]{2})?$";
+                if (Regex.IsMatch(textBoxAddres.Text, pattern))
+                    custumerI.Address = textBoxAddres.Text;
+                else if(custumerI.Address == null && (textBoxAddres.Text.Length != 0))
+                    MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица число, квартира число");
+                pattern = @"^(?!\+.*\(.*\).*\-\-.*$)(?!\+.*\(.*\).*\-$)(([0-9]{0,12})?(\([0-9]{2})?(\)[0-9]{6})?(\+[0-9]{3,10})?(\([0-9]{2})?(\)[0-9]{3,6})?)$";
+                if (Regex.IsMatch(textBoxPhoneNumber.Text, pattern))
+                    MessageBox.Show("phone ok");
+                else if (custumerI.Phone == null && (textBoxPhoneNumber.Text.Length != 0))
+                    MessageBox.Show("Номер теефона в не верном формате, верный формат: 380953162181");
+                dateTimeBirth.ValueChanged += (s, e) => MessageBox.Show("Change dataTime");
+                await db.SaveChangesAsync();
+                if(userData.ContactFio!= custumerI.ContactFio|| userData.Address != custumerI.Address|| userData.Phone != custumerI.Phone|| userData.DataOfBirth != custumerI.DataOfBirth)
+                    MessageBox.Show("Данные сохранены");
+                custumerInfo = custumerI;
+            }
+        }
+        #endregion
         #region Click Settings
         private void MouseClickSettings()
         {
-            MouseClickUserSettings();
+            MouseClickPanelUser();
             MouseClickCabinetSettings();
-
+        }
+        private void VisibleCabinetPanels(Panel p)
+        {
+            panelCabinet.Visible = true;
+            panelOrder.Visible = false;
+            panelCustumerInformation.Visible = false;
+            panelSettings.Visible = false;
+            panelHistoryOrders.Visible = false;
+            p.Visible = true;
+            p.Size = new Size(1060, 884);
+            p.Location = new Point(0, 0);
+        }
+        private void VisibleCabinetPanels()
+        {
+            panelCabinet.Visible = true;
+            panelOrder.Visible = false;
+            panelCustumerInformation.Visible = false;
+            panelSettings.Visible = false;
+            panelHistoryOrders.Visible = false;
         }
         private void MouseClickCabinetSettings()
         {
-            CabinetBasket.MouseClick += (s, e) => { panelOrder.Visible = true; BasketClickOrder(basketList); MessageBox.Show("BASKET"); }; ;
+            CabinetBasket.MouseClick += (s, e) => { VisibleCabinetPanels(panelOrder); OrderPanelView(basketList); }; ;
+            CabinetUserData.MouseClick += (s, e) => { VisibleCabinetPanels(panelCustumerInformation); CustumerDataPanelView(); };
+            CabinetSettingsButton.MouseClick += (s, e) => { VisibleCabinetPanels(panelSettings);  };
+            CabinetHistoryOrders.MouseClick += (s, e) => { VisibleCabinetPanels(panelHistoryOrders); };
         }
-        private void MouseClickUserSettings()
+        private void MouseClickPanelUser()
         {
             Exit.MouseClick += (s, e) =>
             {
@@ -47,13 +126,13 @@ namespace InternetMarket
                 ac.Show();
             };
             SearchButton.MouseClick += (s,e)=> SearchClick(Search.Text);
-            CabinetButtom.MouseClick += (s, e) => { panelCabinet.Visible = true; MessageBox.Show("Cabinet"); };
-            basketButtom.MouseClick += (s, e) => { panelOrder.Visible = true; BasketClickOrder(basketList);MessageBox.Show("BASKET"); }; ;
+            CabinetButtom.MouseClick += (s, e) => { VisibleCabinetPanels(); };
+            basketButtom.MouseClick += (s, e) => { VisibleCabinetPanels(panelOrder); OrderPanelView(basketList); } ;
         }
         public void SearchClick(string Text)
         {
             
-            using (M1 db = new M1())
+            using (M3 db = new M3())
             {   
                 var query = from prod in db.Products.AsParallel()
                             where Regex.IsMatch(prod.Title, Text, RegexOptions.IgnoreCase) || prod.Title == Text||prod.ProductCategory == Text
@@ -76,9 +155,96 @@ namespace InternetMarket
         }
         #endregion
         #region Order
+        private async void OrderAceptButtonClick()
+        {
+            if (OrderPanelСompletedCorrectly())
+            {
+                using (M3 db = new M3())
+                {
+                    Order orderExamp = new Order();
+                    CustomerInformation cIOrder = new CustomerInformation();
+                    //cIOrder.Phone = orderPhoneNumber.Text;
+                    cIOrder.Address = orderAddres.Text;
+                    cIOrder.ContactFio = orderFamily.Text + "," + orderName.Text + "," + orderDad.Text;
+                    orderExamp.OrderPrice = Convert.ToInt32(OrderPriceLabel.Text);
+                    orderExamp.Created = DateTime.Now;
+                    orderExamp.CustomerInformation = custumerInfo;
+                    orderExamp.PaymentMthod = (orderPaymentMthod.Text == "Наличный расчёт" ? PaymentMthod.UponReceipt : (orderPaymentMthod.Text == "MasterCard" ? PaymentMthod.VisaMastercard : (orderPaymentMthod.Text == "GooglePay" ? PaymentMthod.GooglePay : orderExamp.PaymentMthod)));
+                    orderExamp.DeliveryMethod = (orderDeliveryMetod.Text == "Курьером" ? DeliveryMetod.Courier : (orderDeliveryMetod.Text == "Новой почтой" ? DeliveryMetod.FromNewMail : (orderPaymentMthod.Text == "Самовывоз" ? DeliveryMetod.Pickup : orderExamp.DeliveryMethod)));
+                    orderExamp.StatusOrder = StatusOrder.Accepted;
+                    orderExamp.Product = basketList;
+                    db.Orders.Add(orderExamp);
+                    await db.SaveChangesAsync();
+                    MessageBox.Show("Заказ принят");
+                }
+            }
+        }
+        private bool OrderPanelСompletedCorrectly()
+        {
+            string pattern = @"^[А-Яа-я]{1}[а-я]{3,20}$";
+            if (Regex.IsMatch(orderFamily.Text, pattern) || Regex.IsMatch(orderName.Text, pattern) || Regex.IsMatch(orderDad.Text, pattern))
+            {
+                pattern = @"^[А-Яа-я]{1}[а-я]{1}[,а-я]{1}([а-я]{0,1})?([,а-я]{0,1})?([а-я]{0,11})?([,]{0,1})? [А-Яа-я]{1}[а-я]{1,19} [0-9а-я]{1}.{1,2}([,0-9а-я]{0,1})?(.{0,1})?([0-9]{0,1})?([,0-9]{0,1})?([0-9]{0,1})?([,]{0,1})? [0-9а-я]{1,2}([.]{0,1})?( [0-9]{2})?$";
+                if (Regex.IsMatch(orderAddres.Text, pattern))
+                {
+                    pattern = @"^(?!\+.*\(.*\).*\-\-.*$)(?!\+.*\(.*\).*\-$)(([0-9]{0,12})?(\([0-9]{2})?(\)[0-9]{6})?(\+[0-9]{3,10})?(\([0-9]{2})?(\)[0-9]{3,6})?)$";
+                    if (Regex.IsMatch(orderPhoneNumber.Text, pattern))
+                    {
+                        pattern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                        @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
+                        if (Regex.IsMatch(orderEmail.Text, pattern, RegexOptions.IgnoreCase))
+                        {
+                            if (orderDeliveryMetod.Text.Length != 0&&(orderDeliveryMetod.Text== "Самовывоз"|| orderDeliveryMetod.Text == "Новой почтой"|| orderDeliveryMetod.Text == "Курьером"))
+                            {
+                                if (orderPaymentMthod.Text.Length != 0&&(orderPaymentMthod.Text== "Наличный расчёт"|| orderPaymentMthod.Text == "MasterCard"|| orderPaymentMthod.Text == "GooglePay"))
+                                {
+                                    if (Convert.ToInt32(OrderPriceLabel.Text) != 0)
+                                    {
+                                        return true;
+                                    }
+                                    else { MessageBox.Show("В корзине пусто"); return false; };
+                                }
+                                else { MessageBox.Show("Выберите способ оплаты"); return false; };
+                            }
+                            else { MessageBox.Show("Выберите способ доставки"); return false; };
+                        }
+                        else { MessageBox.Show("Почта в не верном формате, верный формат: jonah921@gmail.com"); return false; };
+                    }
+                    else { MessageBox.Show("Номер теефона в не верном формате, верный формат: 380953162181"); return false; };
+                }
+                else { MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица число, квартира число"); return false; };
+            }
+            else { MessageBox.Show("Имя,Фамилия или Отчество в не правильном формате ");return false; };
+        }
+        private void OrderPanelView(List<Product> pList)
+        {
+            int orderPriceInt = 0;
+            foreach (var product in pList)
+            {
+                orderPriceInt += Convert.ToInt32(product.Price);
+            }
+            if (custumerInfo.ContactFio != null)
+            {
+                string[] fioArrey = custumerInfo.ContactFio.Split(',');
+                orderFamily.Text = fioArrey[0];
+                orderName.Text = fioArrey[1];
+                orderDad.Text = fioArrey[2];
+            }
+            if (custumerInfo.Phone != null)
+            {
+                textBoxPhoneNumber.Text = custumerInfo.Phone;
+            }
+            if (custumerInfo.Address != null)
+            {
+                orderAddres.Text = custumerInfo.Address;
+            }
+            OrderPriceLabel.Text = orderPriceInt.ToString();
+            panelBasket.Controls.Clear();
+            orderAceptButton.MouseClick += (s, e) => { OrderAceptButtonClick(); };
+            BasketClickOrder(pList);
+        }
         private void BasketClickOrder(List<Product> pL)
         {
-            panelBasket.Controls.Clear();
             int height = 0;
             for (int i = 0; i < pL.Count; i++)
             {
@@ -97,7 +263,6 @@ namespace InternetMarket
                 numeric.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
                 numeric.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 numeric.BackColor = Color.FromArgb(45, 45, 45);
-                //numeric.
                 Label del = new Label();
                 del.Size = new System.Drawing.Size(70, 40);
                 del.Font = new Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -126,11 +291,10 @@ namespace InternetMarket
                 priceCHRN.Text = "грн";
                 priceCHRN.Font = new Font("Microsoft YaHei", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
                 priceCHRN.ForeColor = Color.FromArgb(45, 45, 45);
-                //priceCHRN.Size = new System.Drawing.Size(51, 27);
                 picture.BackgroundImage = ImageDowloader(new Uri(pL[i].ImageData));
                 title.Text = pL[i].Title;
                 price.Text = (pL[i].Price).ToString();
-                panel.Controls.Add(del); panel.Controls.Add(numeric); panel.Controls.Add(price);
+                panel.Controls.Add(del);panel.Controls.Add(price); panel.Controls.Add(numeric);
                 panel.Controls.Add(priceCHRN); panel.Controls.Add(title); panel.Controls.Add(picture);
                 panelCabinet.Visible = true;
                 panelBasket.Controls.Add(panel);
@@ -139,13 +303,15 @@ namespace InternetMarket
             int j=0;
             foreach (var item in basketList)
             {
-                panels[j].Controls[0].MouseClick += (s, e) => { basketList.Remove(item); BasketClickOrder(basketList); };
-                //(panels[j].Controls[1] as NumericUpDown).ValueChanged += (s, e) => 
-                //{
-                //    panels[j].Controls[2].Text = (Convert.ToInt32(panels[j].Controls[2].Text)*(panels[j].Controls[1] as NumericUpDown).Value).ToString();
-                //};
+                panels[j].Controls[0].MouseClick += (s, e) => { basketList.Remove(item); OrderPanelView(basketList); };
+
+                (panels[j].Controls[1] as NumericUpDown).ValueChanged += (s, e) =>
+                {
+                    OrderPriceLabel.Text = (Convert.ToInt32(OrderPriceLabel.Text)+(Convert.ToInt32(panels[j].Controls[1].Text) * (panels[j].Controls[1] as NumericUpDown).Value)).ToString();
+                };
                 j++;
             }
+            panelBasket.AutoScrollPosition = new Point(0, 0);
 
         }
         #endregion
@@ -214,7 +380,7 @@ namespace InternetMarket
         private void ReadProductsTopDB(string Category,int height)
         {
             panelCabinet.Visible = false;
-            using (M1 db = new M1())
+            using (M3 db = new M3())
             {
                 var query = from prod in db.Products.AsParallel()
                             where prod.ProductCategory == Category
@@ -396,7 +562,9 @@ namespace InternetMarket
                 };
                 p.Controls[i].MouseClick += (s, e) =>
                 {
+                    panelTop.AutoScrollPosition = new Point(0,0) ;
                     panelTop.Controls.Clear();
+                    panelTop.Controls.Add(panelCabinet);
                     CatalogLeavePanel(p);
                     ReadProductsTopDB((s as Label).Name,30);
                 };

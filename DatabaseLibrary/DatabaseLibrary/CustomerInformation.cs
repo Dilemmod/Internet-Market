@@ -9,11 +9,10 @@ namespace DatabaseLibrary
     public class CustomerInformation
     {
         public int Id { get; set; }
-        public int DataOfBirth { get; set; }
+        public string DataOfBirth { get; set; }
         public string Address { get; set; }
-        public string Status { get; set; }
         public string ContactFio { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public int? UserLoginId { get; set; }
         public UsersLogin UserLogin { get; set; }
         public ICollection<Order> Order { get; set; }

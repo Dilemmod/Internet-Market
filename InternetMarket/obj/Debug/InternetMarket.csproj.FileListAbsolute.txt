@@ -22,4 +22,3 @@ D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Runtime.CompilerService
 D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Text.Encoding.CodePages.dll
 D:\GitHub\InternetMarket\InternetMarket\bin\Debug\AngleSharp.xml
 D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\GitHub\InternetMarket\InternetMarket\obj\Debug\InternetMarket.Cabinet.resources

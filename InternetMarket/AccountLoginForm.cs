@@ -38,19 +38,22 @@ namespace InternetMarket
         {
             if (CheckRegistration())
             {
-               // try
+               //try
                 {
-                    using (M1 db = new M1())
+                    using (M3 db = new M3())
                     {
                         UsersLogin user = new UsersLogin();
                         user.Login = registrationName.Text;
                         user.Password = registrationPassword.Text;
                         user.Mail = registrationMail.Text;
                         db.UsersLogins.Add(user);
+                        CustomerInformation userInformation = new CustomerInformation();
+                        userInformation.UserLogin = user;
+                        db.CustomersInformations.Add(userInformation);
                         await db.SaveChangesAsync();
                     }
                 }
-               // catch
+                //catch
                 {
                     //MessageBox.Show("Error Server");
                 }
@@ -105,26 +108,36 @@ namespace InternetMarket
         private void loginButton_MouseClick(object sender, MouseEventArgs e)
         {
 
-            try
+            //try
             {
-                using (M1 db = new M1())
+                using (M3 db = new M3())
                 {
                     var query = from user in db.UsersLogins.AsParallel()
                                 where (user.Login == loginName.Text || user.Mail == loginName.Text) && user.Password == loginPassword.Text
                                 select user;
-                    if (query.ToList().Count != 0)
+                    List<UsersLogin> uLogin = query.ToList();
+                    if (uLogin.Count != 0)
                     {
-                        this.Hide();
-                        CustomerForm cF = new CustomerForm();
-                        cF.Show();
+                        var queryCustumerInfo = from custInfo in db.CustomersInformations.AsParallel()
+                                                where custInfo.UserLoginId == uLogin[0].Id
+                                                select custInfo;
+                        List<CustomerInformation> cInfoList = queryCustumerInfo.ToList();
+                        if (cInfoList.Count != 0)
+                        {
+                            this.Hide();
+                            CustomerForm cF = new CustomerForm(cInfoList[0]);
+                            cF.Show();
+                        }
+                        else
+                            MessageBox.Show("Such user was not found");
                     }
                     else
                         MessageBox.Show("Such user was not found");
                 }
             }
-            catch
+           // catch
             {
-                MessageBox.Show("Error Server");
+                //MessageBox.Show("Error Server");
             }
         }
         private bool UserExist()
@@ -132,7 +145,7 @@ namespace InternetMarket
 
             try
             {
-                using (M1 db = new M1())
+                using (M3 db = new M3())
                 {
                     var query = from user in db.UsersLogins.AsParallel()
                                 where user.Login == registrationName.Text || user.Mail == registrationMail.Text

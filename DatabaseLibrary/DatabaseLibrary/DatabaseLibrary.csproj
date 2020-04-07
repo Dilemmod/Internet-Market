@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Characteristic.cs" />
     <Compile Include="CustomerInformation.cs" />
-    <Compile Include="M1.cs" />
+    <Compile Include="M3.cs" />
     <Compile Include="MenedjerInformation.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />

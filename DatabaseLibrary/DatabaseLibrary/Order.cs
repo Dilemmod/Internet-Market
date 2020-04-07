@@ -9,9 +9,8 @@ namespace DatabaseLibrary
     public class Order
     {
         public int Id { get; set; }
-        public double Cost { get; set; }
+        public int OrderPrice { get; set; }
         public DateTime Created { get; set; }
-        public string Comment { get; set; }
         public DeliveryMetod DeliveryMethod { get; set; }
         public PaymentMthod PaymentMthod { get; set; }
         public StatusOrder StatusOrder { get; set; }
