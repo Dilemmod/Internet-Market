@@ -32,14 +32,14 @@ namespace Fill_M1
             {
                 List<Product> productList = new List<Product>();
                 var parser = new Parser();
-                var result = parser.GetInfo("https://telemart.ua/motherboard/").Result;
+                var result = parser.GetInfo("https://telemart.ua/videocard/").Result;
                 try
                 {
                     for (int i = 0; i < result.Title.Count; i++)
                     {
                         Product p = new Product();
                         //Categoty
-                        p.ProductCategory = "Motherboard";
+                        p.ProductCategory = "Videocard";
                         //p.ProductSubCategory = "Motherboard";
                         //Manufacture
                         // p.ProductManufacturer = "All";

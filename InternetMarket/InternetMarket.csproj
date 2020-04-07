@@ -75,6 +75,12 @@
     <Compile Include="AccountLoginForm.Designer.cs">
       <DependentUpon>AccountLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cabinet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cabinet.Designer.cs">
+      <DependentUpon>Cabinet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccountLoginForm.resx">
       <DependentUpon>AccountLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cabinet.resx">
+      <DependentUpon>Cabinet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
