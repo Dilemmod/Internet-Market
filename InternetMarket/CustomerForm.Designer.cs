@@ -31,7 +31,28 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelCabinet = new System.Windows.Forms.Panel();
+            this.mainHistoryPanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panelCustumerInformation = new System.Windows.Forms.Panel();
+            this.SaveCustumerInformation = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.dateTimeBirth = new System.Windows.Forms.DateTimePicker();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxAddres = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBoxDad = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBoxFamily = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.panelOrder = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.orderAddres = new System.Windows.Forms.TextBox();
             this.orderPaymentMthod = new System.Windows.Forms.ComboBox();
             this.orderDeliveryMetod = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -58,26 +79,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.panelHistoryOrders = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
             this.panelSettings = new System.Windows.Forms.Panel();
             this.SeveSettingsButtom = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.panelCustumerInformation = new System.Windows.Forms.Panel();
-            this.SaveCustumerInformation = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.dateTimeBirth = new System.Windows.Forms.DateTimePicker();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBoxAddres = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBoxDad = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBoxFamily = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
             this.CabinetSettingsButton = new System.Windows.Forms.Label();
             this.CabinetUserData = new System.Windows.Forms.Label();
             this.CabinetBasket = new System.Windows.Forms.Label();
@@ -131,19 +135,30 @@
             this.logoPanel = new System.Windows.Forms.Panel();
             this.LogoIT = new System.Windows.Forms.Label();
             this.logoM = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.orderAddres = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.historydateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.historyNumber = new System.Windows.Forms.Label();
+            this.historyPrice = new System.Windows.Forms.Label();
+            this.historyPanel = new System.Windows.Forms.Panel();
+            this.historyStatus = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.historyProductInOrderPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.HistorynumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.historyPriceProduct = new System.Windows.Forms.Label();
+            this.historyTitle = new System.Windows.Forms.Label();
+            this.HistorypictureBox = new System.Windows.Forms.PictureBox();
             this.mainPanel.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelCabinet.SuspendLayout();
+            this.mainHistoryPanel.SuspendLayout();
+            this.panelCustumerInformation.SuspendLayout();
             this.panelOrder.SuspendLayout();
             this.panelBasket.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelHistoryOrders.SuspendLayout();
             this.panelSettings.SuspendLayout();
-            this.panelCustumerInformation.SuspendLayout();
             this.CatalogPanel.SuspendLayout();
             this.NoutbookPanel.SuspendLayout();
             this.PereferPanel.SuspendLayout();
@@ -152,6 +167,11 @@
             this.PcPanel.SuspendLayout();
             this.panelUser.SuspendLayout();
             this.logoPanel.SuspendLayout();
+            this.historyPanel.SuspendLayout();
+            this.historyProductInOrderPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HistorynumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HistorypictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -186,9 +206,9 @@
             // panelCabinet
             // 
             this.panelCabinet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panelCabinet.Controls.Add(this.mainHistoryPanel);
             this.panelCabinet.Controls.Add(this.panelCustumerInformation);
             this.panelCabinet.Controls.Add(this.panelOrder);
-            this.panelCabinet.Controls.Add(this.panelHistoryOrders);
             this.panelCabinet.Controls.Add(this.panelSettings);
             this.panelCabinet.Controls.Add(this.CabinetSettingsButton);
             this.panelCabinet.Controls.Add(this.CabinetUserData);
@@ -201,6 +221,245 @@
             this.panelCabinet.Size = new System.Drawing.Size(1026, 884);
             this.panelCabinet.TabIndex = 64;
             this.panelCabinet.Visible = false;
+            // 
+            // mainHistoryPanel
+            // 
+            this.mainHistoryPanel.Controls.Add(this.historyProductInOrderPanel);
+            this.mainHistoryPanel.Controls.Add(this.label25);
+            this.mainHistoryPanel.Controls.Add(this.historyPanel);
+            this.mainHistoryPanel.Controls.Add(this.label18);
+            this.mainHistoryPanel.Controls.Add(this.label5);
+            this.mainHistoryPanel.Controls.Add(this.label4);
+            this.mainHistoryPanel.Controls.Add(this.label24);
+            this.mainHistoryPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainHistoryPanel.Name = "mainHistoryPanel";
+            this.mainHistoryPanel.Size = new System.Drawing.Size(1060, 884);
+            this.mainHistoryPanel.TabIndex = 99;
+            this.mainHistoryPanel.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(176, 132);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 28);
+            this.label5.TabIndex = 61;
+            this.label5.Text = "Время";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(52, 132);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 28);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Номер";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label24.Font = new System.Drawing.Font("Microsoft YaHei", 30F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(351, 50);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(379, 52);
+            this.label24.TabIndex = 59;
+            this.label24.Text = "История Заказов";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelCustumerInformation
+            // 
+            this.panelCustumerInformation.AutoScroll = true;
+            this.panelCustumerInformation.AutoScrollMinSize = new System.Drawing.Size(0, 2000);
+            this.panelCustumerInformation.Controls.Add(this.SaveCustumerInformation);
+            this.panelCustumerInformation.Controls.Add(this.label22);
+            this.panelCustumerInformation.Controls.Add(this.dateTimeBirth);
+            this.panelCustumerInformation.Controls.Add(this.label21);
+            this.panelCustumerInformation.Controls.Add(this.textBoxAddres);
+            this.panelCustumerInformation.Controls.Add(this.label27);
+            this.panelCustumerInformation.Controls.Add(this.textBoxDad);
+            this.panelCustumerInformation.Controls.Add(this.label28);
+            this.panelCustumerInformation.Controls.Add(this.textBoxPhoneNumber);
+            this.panelCustumerInformation.Controls.Add(this.label29);
+            this.panelCustumerInformation.Controls.Add(this.textBoxFamily);
+            this.panelCustumerInformation.Controls.Add(this.label30);
+            this.panelCustumerInformation.Controls.Add(this.textBoxName);
+            this.panelCustumerInformation.Controls.Add(this.label34);
+            this.panelCustumerInformation.Location = new System.Drawing.Point(3, 791);
+            this.panelCustumerInformation.Name = "panelCustumerInformation";
+            this.panelCustumerInformation.Size = new System.Drawing.Size(1060, 14);
+            this.panelCustumerInformation.TabIndex = 97;
+            this.panelCustumerInformation.Visible = false;
+            // 
+            // SaveCustumerInformation
+            // 
+            this.SaveCustumerInformation.BackColor = System.Drawing.Color.OliveDrab;
+            this.SaveCustumerInformation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveCustumerInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveCustumerInformation.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveCustumerInformation.ForeColor = System.Drawing.Color.White;
+            this.SaveCustumerInformation.Image = global::InternetMarket.Properties.Resources.Ресурс_17;
+            this.SaveCustumerInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SaveCustumerInformation.Location = new System.Drawing.Point(347, 395);
+            this.SaveCustumerInformation.Name = "SaveCustumerInformation";
+            this.SaveCustumerInformation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.SaveCustumerInformation.Size = new System.Drawing.Size(373, 58);
+            this.SaveCustumerInformation.TabIndex = 92;
+            this.SaveCustumerInformation.Text = "Сохранить";
+            this.SaveCustumerInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label22.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(597, 249);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(142, 22);
+            this.label22.TabIndex = 91;
+            this.label22.Text = "Дата Рождения";
+            // 
+            // dateTimeBirth
+            // 
+            this.dateTimeBirth.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimeBirth.Location = new System.Drawing.Point(601, 274);
+            this.dateTimeBirth.Name = "dateTimeBirth";
+            this.dateTimeBirth.Size = new System.Drawing.Size(372, 33);
+            this.dateTimeBirth.TabIndex = 90;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label21.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(597, 190);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(61, 22);
+            this.label21.TabIndex = 89;
+            this.label21.Text = "Адрес";
+            // 
+            // textBoxAddres
+            // 
+            this.textBoxAddres.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxAddres.Location = new System.Drawing.Point(597, 214);
+            this.textBoxAddres.MaxLength = 50;
+            this.textBoxAddres.Name = "textBoxAddres";
+            this.textBoxAddres.Size = new System.Drawing.Size(376, 32);
+            this.textBoxAddres.TabIndex = 88;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label27.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(597, 128);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(83, 22);
+            this.label27.TabIndex = 85;
+            this.label27.Text = "Телефон";
+            // 
+            // textBoxDad
+            // 
+            this.textBoxDad.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBoxDad.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxDad.Location = new System.Drawing.Point(88, 272);
+            this.textBoxDad.MaxLength = 50;
+            this.textBoxDad.Name = "textBoxDad";
+            this.textBoxDad.Size = new System.Drawing.Size(376, 32);
+            this.textBoxDad.TabIndex = 82;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label28.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(88, 249);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(87, 22);
+            this.label28.TabIndex = 84;
+            this.label28.Text = "Отчество";
+            // 
+            // textBoxPhoneNumber
+            // 
+            this.textBoxPhoneNumber.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxPhoneNumber.Location = new System.Drawing.Point(597, 153);
+            this.textBoxPhoneNumber.MaxLength = 50;
+            this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
+            this.textBoxPhoneNumber.Size = new System.Drawing.Size(376, 32);
+            this.textBoxPhoneNumber.TabIndex = 83;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label29.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(88, 189);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(47, 22);
+            this.label29.TabIndex = 81;
+            this.label29.Text = "Имя";
+            // 
+            // textBoxFamily
+            // 
+            this.textBoxFamily.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBoxFamily.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxFamily.Location = new System.Drawing.Point(88, 151);
+            this.textBoxFamily.MaxLength = 50;
+            this.textBoxFamily.Name = "textBoxFamily";
+            this.textBoxFamily.Size = new System.Drawing.Size(376, 32);
+            this.textBoxFamily.TabIndex = 78;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label30.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Location = new System.Drawing.Point(88, 128);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(88, 22);
+            this.label30.TabIndex = 80;
+            this.label30.Text = "Фамилия";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxName.Location = new System.Drawing.Point(88, 214);
+            this.textBoxName.MaxLength = 50;
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(376, 32);
+            this.textBoxName.TabIndex = 79;
+            // 
+            // label34
+            // 
+            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label34.Font = new System.Drawing.Font("Microsoft YaHei", 30F, System.Drawing.FontStyle.Bold);
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label34.Location = new System.Drawing.Point(263, 13);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(528, 70);
+            this.label34.TabIndex = 59;
+            this.label34.Text = "Личные данные";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelOrder
             // 
@@ -226,11 +485,32 @@
             this.panelOrder.Controls.Add(this.orderName);
             this.panelOrder.Controls.Add(this.panelBasket);
             this.panelOrder.Controls.Add(this.label6);
-            this.panelOrder.Location = new System.Drawing.Point(0, 208);
+            this.panelOrder.Location = new System.Drawing.Point(3, 842);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(1060, 730);
+            this.panelOrder.Size = new System.Drawing.Size(1060, 18);
             this.panelOrder.TabIndex = 63;
             this.panelOrder.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(32, 380);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 22);
+            this.label2.TabIndex = 98;
+            this.label2.Text = "Адрес";
+            // 
+            // orderAddres
+            // 
+            this.orderAddres.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orderAddres.Location = new System.Drawing.Point(32, 405);
+            this.orderAddres.MaxLength = 50;
+            this.orderAddres.Name = "orderAddres";
+            this.orderAddres.Size = new System.Drawing.Size(376, 32);
+            this.orderAddres.TabIndex = 97;
             // 
             // orderPaymentMthod
             // 
@@ -476,8 +756,10 @@
             this.numericUpDown1.ForeColor = System.Drawing.Color.White;
             this.numericUpDown1.Location = new System.Drawing.Point(344, 175);
             this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.ReadOnly = true;
             this.numericUpDown1.Size = new System.Drawing.Size(50, 29);
-            this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.Tag = "";
             // 
             // label10
             // 
@@ -493,6 +775,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 26);
             this.label9.TabIndex = 2;
+            this.label9.Tag = "";
             this.label9.Text = "label9";
             // 
             // label8
@@ -525,40 +808,15 @@
             this.label6.Text = "Корзина";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelHistoryOrders
-            // 
-            this.panelHistoryOrders.AutoScroll = true;
-            this.panelHistoryOrders.AutoScrollMinSize = new System.Drawing.Size(0, 2000);
-            this.panelHistoryOrders.Controls.Add(this.label24);
-            this.panelHistoryOrders.Location = new System.Drawing.Point(3, 481);
-            this.panelHistoryOrders.Name = "panelHistoryOrders";
-            this.panelHistoryOrders.Size = new System.Drawing.Size(1060, 85);
-            this.panelHistoryOrders.TabIndex = 99;
-            this.panelHistoryOrders.Visible = false;
-            // 
-            // label24
-            // 
-            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label24.Font = new System.Drawing.Font("Microsoft YaHei", 30F, System.Drawing.FontStyle.Bold);
-            this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label24.Location = new System.Drawing.Point(263, 13);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(528, 70);
-            this.label24.TabIndex = 59;
-            this.label24.Text = "История Заказов";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panelSettings
             // 
             this.panelSettings.AutoScroll = true;
             this.panelSettings.AutoScrollMinSize = new System.Drawing.Size(0, 2000);
             this.panelSettings.Controls.Add(this.SeveSettingsButtom);
             this.panelSettings.Controls.Add(this.label36);
-            this.panelSettings.Location = new System.Drawing.Point(0, 595);
+            this.panelSettings.Location = new System.Drawing.Point(0, 292);
             this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Size = new System.Drawing.Size(1060, 92);
+            this.panelSettings.Size = new System.Drawing.Size(1060, 78);
             this.panelSettings.TabIndex = 98;
             this.panelSettings.Visible = false;
             // 
@@ -592,188 +850,6 @@
             this.label36.TabIndex = 59;
             this.label36.Text = "Настройки";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panelCustumerInformation
-            // 
-            this.panelCustumerInformation.AutoScroll = true;
-            this.panelCustumerInformation.AutoScrollMinSize = new System.Drawing.Size(0, 2000);
-            this.panelCustumerInformation.Controls.Add(this.SaveCustumerInformation);
-            this.panelCustumerInformation.Controls.Add(this.label22);
-            this.panelCustumerInformation.Controls.Add(this.dateTimeBirth);
-            this.panelCustumerInformation.Controls.Add(this.label21);
-            this.panelCustumerInformation.Controls.Add(this.textBoxAddres);
-            this.panelCustumerInformation.Controls.Add(this.label27);
-            this.panelCustumerInformation.Controls.Add(this.textBoxDad);
-            this.panelCustumerInformation.Controls.Add(this.label28);
-            this.panelCustumerInformation.Controls.Add(this.textBoxPhoneNumber);
-            this.panelCustumerInformation.Controls.Add(this.label29);
-            this.panelCustumerInformation.Controls.Add(this.textBoxFamily);
-            this.panelCustumerInformation.Controls.Add(this.label30);
-            this.panelCustumerInformation.Controls.Add(this.textBoxName);
-            this.panelCustumerInformation.Controls.Add(this.label34);
-            this.panelCustumerInformation.Location = new System.Drawing.Point(0, 80);
-            this.panelCustumerInformation.Name = "panelCustumerInformation";
-            this.panelCustumerInformation.Size = new System.Drawing.Size(1060, 27);
-            this.panelCustumerInformation.TabIndex = 97;
-            this.panelCustumerInformation.Visible = false;
-            // 
-            // SaveCustumerInformation
-            // 
-            this.SaveCustumerInformation.BackColor = System.Drawing.Color.OliveDrab;
-            this.SaveCustumerInformation.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveCustumerInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveCustumerInformation.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveCustumerInformation.ForeColor = System.Drawing.Color.White;
-            this.SaveCustumerInformation.Image = global::InternetMarket.Properties.Resources.Ресурс_17;
-            this.SaveCustumerInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveCustumerInformation.Location = new System.Drawing.Point(347, 395);
-            this.SaveCustumerInformation.Name = "SaveCustumerInformation";
-            this.SaveCustumerInformation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.SaveCustumerInformation.Size = new System.Drawing.Size(373, 58);
-            this.SaveCustumerInformation.TabIndex = 92;
-            this.SaveCustumerInformation.Text = "Сохранить";
-            this.SaveCustumerInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label22.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(597, 249);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(142, 22);
-            this.label22.TabIndex = 91;
-            this.label22.Text = "Дата Рождения";
-            // 
-            // dateTimeBirth
-            // 
-            this.dateTimeBirth.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimeBirth.Location = new System.Drawing.Point(601, 274);
-            this.dateTimeBirth.Name = "dateTimeBirth";
-            this.dateTimeBirth.Size = new System.Drawing.Size(372, 33);
-            this.dateTimeBirth.TabIndex = 90;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label21.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(597, 190);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(61, 22);
-            this.label21.TabIndex = 89;
-            this.label21.Text = "Адрес";
-            // 
-            // textBoxAddres
-            // 
-            this.textBoxAddres.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxAddres.Location = new System.Drawing.Point(597, 214);
-            this.textBoxAddres.MaxLength = 50;
-            this.textBoxAddres.Name = "textBoxAddres";
-            this.textBoxAddres.Size = new System.Drawing.Size(376, 32);
-            this.textBoxAddres.TabIndex = 88;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label27.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(597, 128);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(83, 22);
-            this.label27.TabIndex = 85;
-            this.label27.Text = "Телефон";
-            // 
-            // textBoxDad
-            // 
-            this.textBoxDad.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBoxDad.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxDad.Location = new System.Drawing.Point(88, 272);
-            this.textBoxDad.MaxLength = 50;
-            this.textBoxDad.Name = "textBoxDad";
-            this.textBoxDad.Size = new System.Drawing.Size(376, 32);
-            this.textBoxDad.TabIndex = 82;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label28.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(88, 249);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(87, 22);
-            this.label28.TabIndex = 84;
-            this.label28.Text = "Отчество";
-            // 
-            // textBoxPhoneNumber
-            // 
-            this.textBoxPhoneNumber.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxPhoneNumber.Location = new System.Drawing.Point(597, 153);
-            this.textBoxPhoneNumber.MaxLength = 50;
-            this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
-            this.textBoxPhoneNumber.Size = new System.Drawing.Size(376, 32);
-            this.textBoxPhoneNumber.TabIndex = 83;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label29.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(88, 189);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(47, 22);
-            this.label29.TabIndex = 81;
-            this.label29.Text = "Имя";
-            // 
-            // textBoxFamily
-            // 
-            this.textBoxFamily.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBoxFamily.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxFamily.Location = new System.Drawing.Point(88, 151);
-            this.textBoxFamily.MaxLength = 50;
-            this.textBoxFamily.Name = "textBoxFamily";
-            this.textBoxFamily.Size = new System.Drawing.Size(376, 32);
-            this.textBoxFamily.TabIndex = 78;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label30.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(88, 128);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(88, 22);
-            this.label30.TabIndex = 80;
-            this.label30.Text = "Фамилия";
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxName.Location = new System.Drawing.Point(88, 214);
-            this.textBoxName.MaxLength = 50;
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(376, 32);
-            this.textBoxName.TabIndex = 79;
-            // 
-            // label34
-            // 
-            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label34.Font = new System.Drawing.Font("Microsoft YaHei", 30F, System.Drawing.FontStyle.Bold);
-            this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label34.Location = new System.Drawing.Point(263, 13);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(528, 70);
-            this.label34.TabIndex = 59;
-            this.label34.Text = "Личные данные";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CabinetSettingsButton
             // 
@@ -1567,26 +1643,153 @@
             this.logoM.TabIndex = 3;
             this.logoM.Text = "MARKET";
             // 
-            // label2
+            // label18
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(32, 380);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 22);
-            this.label2.TabIndex = 98;
-            this.label2.Text = "Адрес";
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(385, 132);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 28);
+            this.label18.TabIndex = 62;
+            this.label18.Text = "Цена";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // orderAddres
+            // historydateTimePicker
             // 
-            this.orderAddres.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.orderAddres.Location = new System.Drawing.Point(32, 405);
-            this.orderAddres.MaxLength = 50;
-            this.orderAddres.Name = "orderAddres";
-            this.orderAddres.Size = new System.Drawing.Size(376, 32);
-            this.orderAddres.TabIndex = 97;
+            this.historydateTimePicker.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historydateTimePicker.Location = new System.Drawing.Point(90, 9);
+            this.historydateTimePicker.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.historydateTimePicker.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.historydateTimePicker.Name = "historydateTimePicker";
+            this.historydateTimePicker.Size = new System.Drawing.Size(177, 27);
+            this.historydateTimePicker.TabIndex = 91;
+            // 
+            // historyNumber
+            // 
+            this.historyNumber.BackColor = System.Drawing.Color.White;
+            this.historyNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.historyNumber.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historyNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.historyNumber.Location = new System.Drawing.Point(9, 9);
+            this.historyNumber.Name = "historyNumber";
+            this.historyNumber.Size = new System.Drawing.Size(75, 27);
+            this.historyNumber.TabIndex = 92;
+            this.historyNumber.Text = "Номер";
+            this.historyNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // historyPrice
+            // 
+            this.historyPrice.BackColor = System.Drawing.Color.White;
+            this.historyPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.historyPrice.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.historyPrice.Location = new System.Drawing.Point(274, 9);
+            this.historyPrice.Name = "historyPrice";
+            this.historyPrice.Size = new System.Drawing.Size(218, 27);
+            this.historyPrice.TabIndex = 93;
+            this.historyPrice.Text = "Цена";
+            this.historyPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // historyPanel
+            // 
+            this.historyPanel.Controls.Add(this.historyStatus);
+            this.historyPanel.Controls.Add(this.historyNumber);
+            this.historyPanel.Controls.Add(this.historyPrice);
+            this.historyPanel.Controls.Add(this.historydateTimePicker);
+            this.historyPanel.Location = new System.Drawing.Point(38, 163);
+            this.historyPanel.Name = "historyPanel";
+            this.historyPanel.Size = new System.Drawing.Size(633, 44);
+            this.historyPanel.TabIndex = 94;
+            this.historyPanel.Visible = false;
+            // 
+            // historyStatus
+            // 
+            this.historyStatus.BackColor = System.Drawing.Color.White;
+            this.historyStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.historyStatus.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historyStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.historyStatus.Location = new System.Drawing.Point(498, 9);
+            this.historyStatus.Name = "historyStatus";
+            this.historyStatus.Size = new System.Drawing.Size(125, 27);
+            this.historyStatus.TabIndex = 94;
+            this.historyStatus.Text = "Статус";
+            this.historyStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label25.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(565, 132);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(81, 28);
+            this.label25.TabIndex = 95;
+            this.label25.Text = "Статус";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // historyProductInOrderPanel
+            // 
+            this.historyProductInOrderPanel.Controls.Add(this.panel3);
+            this.historyProductInOrderPanel.Location = new System.Drawing.Point(690, 132);
+            this.historyProductInOrderPanel.Name = "historyProductInOrderPanel";
+            this.historyProductInOrderPanel.Size = new System.Drawing.Size(373, 752);
+            this.historyProductInOrderPanel.TabIndex = 95;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.OliveDrab;
+            this.panel3.Controls.Add(this.HistorynumericUpDown);
+            this.panel3.Controls.Add(this.historyPriceProduct);
+            this.panel3.Controls.Add(this.historyTitle);
+            this.panel3.Controls.Add(this.HistorypictureBox);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(327, 167);
+            this.panel3.TabIndex = 96;
+            this.panel3.Visible = false;
+            // 
+            // HistorynumericUpDown
+            // 
+            this.HistorynumericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.HistorynumericUpDown.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.HistorynumericUpDown.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.HistorynumericUpDown.ForeColor = System.Drawing.Color.White;
+            this.HistorynumericUpDown.Location = new System.Drawing.Point(284, 130);
+            this.HistorynumericUpDown.Name = "HistorynumericUpDown";
+            this.HistorynumericUpDown.ReadOnly = true;
+            this.HistorynumericUpDown.Size = new System.Drawing.Size(37, 21);
+            this.HistorynumericUpDown.TabIndex = 2;
+            this.HistorynumericUpDown.Tag = "";
+            // 
+            // historyPriceProduct
+            // 
+            this.historyPriceProduct.Location = new System.Drawing.Point(169, 130);
+            this.historyPriceProduct.Name = "historyPriceProduct";
+            this.historyPriceProduct.Size = new System.Drawing.Size(114, 26);
+            this.historyPriceProduct.TabIndex = 2;
+            this.historyPriceProduct.Tag = "";
+            this.historyPriceProduct.Text = "label23";
+            // 
+            // historyTitle
+            // 
+            this.historyTitle.Location = new System.Drawing.Point(169, 10);
+            this.historyTitle.Name = "historyTitle";
+            this.historyTitle.Size = new System.Drawing.Size(151, 110);
+            this.historyTitle.TabIndex = 1;
+            this.historyTitle.Text = "label26";
+            // 
+            // HistorypictureBox
+            // 
+            this.HistorypictureBox.Location = new System.Drawing.Point(3, 3);
+            this.HistorypictureBox.Name = "HistorypictureBox";
+            this.HistorypictureBox.Size = new System.Drawing.Size(160, 160);
+            this.HistorypictureBox.TabIndex = 0;
+            this.HistorypictureBox.TabStop = false;
             // 
             // CustomerForm
             // 
@@ -1601,16 +1804,17 @@
             this.mainPanel.ResumeLayout(false);
             this.panelTop.ResumeLayout(false);
             this.panelCabinet.ResumeLayout(false);
+            this.mainHistoryPanel.ResumeLayout(false);
+            this.mainHistoryPanel.PerformLayout();
+            this.panelCustumerInformation.ResumeLayout(false);
+            this.panelCustumerInformation.PerformLayout();
             this.panelOrder.ResumeLayout(false);
             this.panelOrder.PerformLayout();
             this.panelBasket.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelHistoryOrders.ResumeLayout(false);
             this.panelSettings.ResumeLayout(false);
-            this.panelCustumerInformation.ResumeLayout(false);
-            this.panelCustumerInformation.PerformLayout();
             this.CatalogPanel.ResumeLayout(false);
             this.NoutbookPanel.ResumeLayout(false);
             this.PereferPanel.ResumeLayout(false);
@@ -1621,6 +1825,11 @@
             this.panelUser.PerformLayout();
             this.logoPanel.ResumeLayout(false);
             this.logoPanel.PerformLayout();
+            this.historyPanel.ResumeLayout(false);
+            this.historyProductInOrderPanel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.HistorynumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HistorypictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1725,12 +1934,27 @@
         private System.Windows.Forms.DateTimePicker dateTimeBirth;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBoxAddres;
-        private System.Windows.Forms.Panel panelHistoryOrders;
+        private System.Windows.Forms.Panel mainHistoryPanel;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel panelSettings;
         private System.Windows.Forms.Label SeveSettingsButtom;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox orderAddres;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel historyPanel;
+        private System.Windows.Forms.Label historyNumber;
+        private System.Windows.Forms.Label historyPrice;
+        private System.Windows.Forms.DateTimePicker historydateTimePicker;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel historyProductInOrderPanel;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label historyStatus;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.NumericUpDown HistorynumericUpDown;
+        private System.Windows.Forms.Label historyPriceProduct;
+        private System.Windows.Forms.Label historyTitle;
+        private System.Windows.Forms.PictureBox HistorypictureBox;
     }
 }

@@ -40,7 +40,7 @@ namespace InternetMarket
             {
                //try
                 {
-                    using (M3 db = new M3())
+                    using (M5 db = new M5())
                     {
                         UsersLogin user = new UsersLogin();
                         user.Login = registrationName.Text;
@@ -110,7 +110,7 @@ namespace InternetMarket
 
             //try
             {
-                using (M3 db = new M3())
+                using (M5 db = new M5())
                 {
                     var query = from user in db.UsersLogins.AsParallel()
                                 where (user.Login == loginName.Text || user.Mail == loginName.Text) && user.Password == loginPassword.Text
@@ -145,7 +145,7 @@ namespace InternetMarket
 
             try
             {
-                using (M3 db = new M3())
+                using (M5 db = new M5())
                 {
                     var query = from user in db.UsersLogins.AsParallel()
                                 where user.Login == registrationName.Text || user.Mail == registrationMail.Text

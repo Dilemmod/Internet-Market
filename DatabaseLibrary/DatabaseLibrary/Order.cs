@@ -16,10 +16,11 @@ namespace DatabaseLibrary
         public StatusOrder StatusOrder { get; set; }
         public int? CustomerInformationId { get; set; }
         public CustomerInformation CustomerInformation { get; set; }
-        public ICollection<Product> Product { get; set; }
+        //  public int[] ProductsId { get; set; }
+        public ICollection<Product> Products { get; set; }
         public Order()
         {
-            Product = new List<Product>();
+            Products = new List<Product>();
         }
     }
     public enum StatusOrder

@@ -15,7 +15,7 @@ namespace InternetMarket
         [STAThread]
         static void Main()
         {
-            using (M3 db = new M3())
+            using (M5 db = new M5())
             {
                 var queryCustumerInfo = from custInfo in db.CustomersInformations.AsParallel()
                                         where custInfo.UserLoginId== 1
@@ -23,8 +23,10 @@ namespace InternetMarket
                 List<CustomerInformation> cInfoList = queryCustumerInfo.ToList();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new AccountLoginForm());
-                //Application.Run(new CustomerForm(cInfoList[0]));
+                if(cInfoList.Count!=0)
+                 Application.Run(new CustomerForm(cInfoList[0]));
+                else
+                 Application.Run(new AccountLoginForm());
             }
         }
     }
