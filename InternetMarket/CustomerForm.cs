@@ -80,12 +80,12 @@ namespace InternetMarket
                     custumerI.ContactFio = textBoxFamily.Text+"," + textBoxName.Text+"," + textBoxDad.Text;
                 else if (custumerI.ContactFio==null&&(textBoxFamily.Text.Length!=0 || textBoxName.Text.Length != 0 || textBoxDad.Text.Length != 0))
                      MessageBox.Show("Для изменения Имени,Фамилии или Отчества нужно чтобы все эти поля были заполнены и имели вид обычных слов ");
-                pattern = @"^[А-Яа-я]{1}[а-я]{1}[,а-я]{1}([а-я]{0,1})?([,а-я]{0,1})?([а-я]{0,11})?([,]{0,1})? [А-Яа-я]{1}[а-я]{1,19} [0-9а-я]{1}.{1,2}([,0-9а-я]{0,1})?(.{0,1})?([0-9]{0,1})?([,0-9]{0,1})?([0-9]{0,1})?([,]{0,1})? [0-9а-я]{1,2}([.]{0,1})?( [0-9]{2})?$";
-                if (Regex.IsMatch(textBoxAddres.Text, pattern))
+                pattern = @"[А - я]{ 1}[а-я]+[.,].[А-я]{1}[а-я]+\s?[д]?[д.]?[д]?[о]?[м]?\s?[0 - 9]{0,5}\s?[.,].\s?[к]?[к.]?[кв]?\s?[0 - 9]{0,5}";
+                if (Regex.IsMatch(textBoxAddres.Text, pattern,RegexOptions.IgnorePatternWhitespace))
                     custumerI.Address = textBoxAddres.Text;
                 else if(custumerI.Address == null && (textBoxAddres.Text.Length != 0))
-                    MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица число, квартира число");
-                pattern = @"^(?!\+.*\(.*\).*\-\-.*$)(?!\+.*\(.*\).*\-$)(([0-9]{0,12})?(\([0-9]{2})?(\)[0-9]{6})?(\+[0-9]{3,10})?(\([0-9]{2})?(\)[0-9]{3,6})?)$";
+                    MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица НомерДома, НомерКвартиры");
+                pattern = @"[+0-9]?[0-9]{5,12}";
                 if (Regex.IsMatch(textBoxPhoneNumber.Text, pattern))
                     custumerI.Phone = textBoxPhoneNumber.Text;
                 else if (custumerI.Phone == null && (textBoxPhoneNumber.Text.Length != 0))
@@ -404,12 +404,14 @@ namespace InternetMarket
         public bool OrderPanelСompletedCorrectly(string orderFamily,string orderName,string orderDad, string orderAddres,string orderPhoneNumber,string orderEmail, string orderDeliveryMetod, string orderPaymentMthod,string OrderPriceLabel)
         {
             string pattern = @"^[А-Яа-я]{1}[а-я]{3,20}$";
-            if (Regex.IsMatch(orderFamily, pattern) || Regex.IsMatch(orderName, pattern) || Regex.IsMatch(orderDad, pattern))
+            string patternEng = @"^[A-Za-z]{1}[a-z]{3,20}$";
+            if ((Regex.IsMatch(orderFamily, pattern) && Regex.IsMatch(orderName, pattern) && Regex.IsMatch(orderDad, pattern))
+                || (Regex.IsMatch(orderFamily, patternEng) && Regex.IsMatch(orderName, patternEng) && Regex.IsMatch(orderDad, patternEng)))
             {
-                pattern = @"^[А-Яа-я]{1}[а-я]{1}[,а-я]{1}([а-я]{0,1})?([,а-я]{0,1})?([а-я]{0,11})?([,]{0,1})? [А-Яа-я]{1}[а-я]{1,19} [0-9а-я]{1}.{1,2}([,0-9а-я]{0,1})?(.{0,1})?([0-9]{0,1})?([,0-9]{0,1})?([0-9]{0,1})?([,]{0,1})? [0-9а-я]{1,2}([.]{0,1})?( [0-9]{2})?$";
-                if (Regex.IsMatch(orderAddres, pattern))
+                pattern = @"^[А-я]{1}[а-я]+[.,].[А-я]{1}[а-я]+\s?[д]?[д.]?[д]?[о]?[м]?\s?[0-9]{0,5}\s?[.,].\s?[к]?[к.]?[кв]?\s?[0-9]{0,5}$";
+                if (Regex.IsMatch(orderAddres, pattern, RegexOptions.IgnorePatternWhitespace))
                 {
-                    pattern = @"^(?!\+.*\(.*\).*\-\-.*$)(?!\+.*\(.*\).*\-$)(([0-9]{0,12})?(\([0-9]{2})?(\)[0-9]{6})?(\+[0-9]{3,10})?(\([0-9]{2})?(\)[0-9]{3,6})?)$";
+                    pattern = @"^[+0-9]?[0-9]{5,12}$";
                     if (Regex.IsMatch(orderPhoneNumber, pattern))
                     {
                         pattern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
@@ -434,7 +436,7 @@ namespace InternetMarket
                     }
                     else { MessageBox.Show("Номер теефона в не верном формате, верный формат: 380953162181"); return false; };
                 }
-                else { MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица число, квартира число"); return false; };
+                else { MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица НомерДома, НомерКвартиры"); return false; };
             }
             else { MessageBox.Show("Имя,Фамилия или Отчество в не правильном формате ");return false; };
         }

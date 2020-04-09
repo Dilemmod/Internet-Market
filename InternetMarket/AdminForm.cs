@@ -413,20 +413,20 @@ namespace InternetMarket
         }
         public  bool CheckUser(string FullName, string Address , string PhoneNumber)
         {
-            string pattern = @"^[А-Яа-я]{1}[а-я]{1}[,а-я]{1}([а-я]{0,3})?([,а-я]{0,1})?([А-Яа-я]{0,1})?([а-я]{0,4})?([,а-я]{0,1})?([а-я]{0,2})?([,]{0,1})?([А-Я]{0,1})?([а-я]{0,10})?([,]{0,1})?([А-Я]{0,1})?([а-я]{0,23})?( [,А-Я]{1})?([А-Яа-я]{0,1})?([,а-я]{0,1})?([а-я]{0,3})?([,а-я]{0,1})?([А-Яа-я]{0,1})?([а-я]{0,13})?( [А-Яа-я]{1})?([а-я]{3,4})?([,]{0,1})?([А-Яа-я]{0,1})?([а-я]{0,13})?( [,]{1})?( [А-Я]{1})?([а-я]{13})?$";
-            if (Regex.IsMatch(FullName, pattern, RegexOptions.IgnoreCase))
+            string pattern = @"^[А-я]{1}[a-я]+[,].[А-я]{1}[а-я]+[,].[А-я]{1}[а-я]+$";
+            if (Regex.IsMatch(FullName, pattern,  RegexOptions.IgnorePatternWhitespace)|| Regex.IsMatch(FullName, "^[A-z]{1}[a-z]+[,].[A-z]{1}[a-z]+[,].[A-z]{1}[a-z]+$", RegexOptions.IgnorePatternWhitespace))
             {
-                pattern = @"^[А-Яа-я]{1}[а-я]{1}[,а-я]{1}([а-я]{0,1})?([,а-я]{0,1})?([а-я]{0,11})?([,]{0,1})? [А-Яа-я]{1}[а-я]{1,19} [0-9а-я]{1}.{1,2}([,0-9а-я]{0,1})?(.{0,1})?([0-9]{0,1})?([,0-9]{0,1})?([0-9]{0,1})?([,]{0,1})? [0-9а-я]{1,2}([.]{0,1})?( [0-9]{2})?$";
-                if (Regex.IsMatch(Address, pattern, RegexOptions.IgnoreCase))
+                pattern = @"^[А-я]{1}[а-я]+[.,].[А-я]{1}[а-я]+\s?[д]?[д.]?[д]?[о]?[м]?\s?[0-9]{0,5}\s?[.,].\s?[к]?[к.]?[кв]?\s?[0-9]{0,5}$";
+                if (Regex.IsMatch(Address, pattern, RegexOptions.IgnorePatternWhitespace)|| Regex.IsMatch(Address, "^[A-z]{1}[a-z]+[.,].[A-z]{1}[a-z]+ ?[h]?[o]?[u]?[s]?[e]?[.]? ?[0-9]{0,5} ?[.,]. ?[r]?[o]+[m]?[.]? ?[0-9]{0,5}$", RegexOptions.IgnorePatternWhitespace))
                 {
-                    pattern = @"^(?!\+.*\(.*\).*\-\-.*$)(?!\+.*\(.*\).*\-$)(([0-9]{0,12})?(\([0-9]{2})?(\)[0-9]{6})?(\+[0-9]{3,10})?(\([0-9]{2})?(\)[0-9]{3,6})?)$";
-                    if (Regex.IsMatch(PhoneNumber, pattern, RegexOptions.IgnoreCase))
+                    pattern = @"^[+0-9]?[0-9]{5,12}$";
+                    if (Regex.IsMatch(PhoneNumber, pattern, RegexOptions.IgnorePatternWhitespace))
                     {
                         return true;
                     }
                     else { MessageBox.Show("Номер теефона в не верном формате, верный формат: 380953162181"); return false; };
                 }
-                else { MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица число, квартира число"); return false; };
+                else { MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица НомерДома, НомерКвартиры"); return false; };
             }
             else { MessageBox.Show("Имя,Фамилия и Отчество в не правильном формате, верный формат: Фамилия,Имя,Отчество "); return false; };
         }
