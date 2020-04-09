@@ -31,6 +31,7 @@ namespace InternetMarket
             PanelSettings();
             loginButton.MouseClick += loginButton_MouseClick;
             registrationButton.MouseClick += registrationButton_MouseClick;
+            
 
         }
 
@@ -38,9 +39,9 @@ namespace InternetMarket
         {
             if (CheckRegistration())
             {
-               //try
+               try
                 {
-                    using (M5 db = new M5())
+                    using (DataBaseIM db = new DataBaseIM())
                     {
                         UsersLogin user = new UsersLogin();
                         user.Login = registrationName.Text;
@@ -53,9 +54,9 @@ namespace InternetMarket
                         await db.SaveChangesAsync();
                     }
                 }
-                //catch
+                catch(Exception w)
                 {
-                    //MessageBox.Show("Error Server");
+                    MessageBox.Show("Error Server: "+w.ToString());
                 }
                 MessageBox.Show("Account Created!");
                 loginPanel.Visible = true;
@@ -107,45 +108,46 @@ namespace InternetMarket
 
         private void loginButton_MouseClick(object sender, MouseEventArgs e)
         {
-
-            //try
+            try
             {
-                using (M5 db = new M5())
+                using (DataBaseIM db = new DataBaseIM())
                 {
-                    var query = from user in db.UsersLogins.AsParallel()
-                                where (user.Login == loginName.Text || user.Mail == loginName.Text) && user.Password == loginPassword.Text
-                                select user;
-                    List<UsersLogin> uLogin = query.ToList();
-                    if (uLogin.Count != 0)
+                    UsersLogin user = db.UsersLogins.FirstOrDefault(u =>( u.Login == loginName.Text || u.Mail == loginName.Text) && u.Password == loginPassword.Text);
+                    if (user!=null)
                     {
-                        var queryCustumerInfo = from custInfo in db.CustomersInformations.AsParallel()
-                                                where custInfo.UserLoginId == uLogin[0].Id
-                                                select custInfo;
-                        List<CustomerInformation> cInfoList = queryCustumerInfo.ToList();
-                        if (cInfoList.Count != 0)
+                        CustomerInformation cInfo = db.CustomersInformations.FirstOrDefault(cI=>cI.UserLoginId == user.Id);
+                        if (cInfo!=null)
                         {
                             this.Hide();
-                            CustomerForm cF = new CustomerForm(cInfoList[0]);
+                            CustomerForm cF = new CustomerForm(cInfo);
                             cF.Show();
                         }
                         else
-                            MessageBox.Show("Such user was not found");
+                        {
+                            MenedjerInformation mInfo = db.MenedjersInformations.FirstOrDefault(mI => mI.UserLoginId == user.Id);
+                            if (mInfo!=null)
+                            {
+                                this.Hide();
+                                AdminForm aF = new AdminForm();
+                                aF.Show();
+                            }
+                            else MessageBox.Show("Не найден");
+                        }
                     }
                     else
-                        MessageBox.Show("Such user was not found");
+                        MessageBox.Show("Такой пользователь не найден");
                 }
             }
-           // catch
+            catch(Exception ex)
             {
-                //MessageBox.Show("Error Server");
+                MessageBox.Show("Error Server: "+ex);
             }
         }
         private bool UserExist()
         {
-
             try
             {
-                using (M5 db = new M5())
+                using (DataBaseIM db = new DataBaseIM())
                 {
                     var query = from user in db.UsersLogins.AsParallel()
                                 where user.Login == registrationName.Text || user.Mail == registrationMail.Text

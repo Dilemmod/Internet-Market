@@ -7,7 +7,7 @@ using ParserTelmart;
 using System.Drawing;
 
 
-namespace Fill_M5
+namespace Fill_DataBaseIM
 {
     class Program
     {
@@ -68,7 +68,7 @@ namespace Fill_M5
                 "NoutbookOfice", "NoutbookGame", "NoutbookAll",
                 "PcOfice", "PcGame", "PcUltra", "PcAll"
             };
-            using (M5 db = new M5())
+            using (DataBaseIM db = new DataBaseIM())
             {
                 for (int l = 0; l < ReferenceByTelemart.Count; l++)
                 {
@@ -96,12 +96,12 @@ namespace Fill_M5
                             string[] s = Regex.Split(result.Characteristics[i], "</div>");
                             s = Regex.Split(s[1], "<br>");
                             List<Characteristic> listCharact = new List<Characteristic>();
-                            foreach (var iteM5 in s)
+                            foreach (var iteDataBaseIM in s)
                             {
                                 Characteristic ch = new Characteristic();
                                 string target = "";
                                 regex = new Regex(@"<[^>]*>");
-                                string withoutTags = regex.Replace(iteM5, target);
+                                string withoutTags = regex.Replace(iteDataBaseIM, target);
                                 regex = new Regex(@"^\s+");
                                 clear = regex.Replace(withoutTags, target);
                                 ch.CharacteristicString = clear;

@@ -334,7 +334,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AccountLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ForM5";
+            this.Text = "ForDataBaseIM";
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             this.registrationPanel.ResumeLayout(false);

@@ -22,3 +22,9 @@ D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Runtime.CompilerService
 D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Text.Encoding.CodePages.dll
 D:\GitHub\InternetMarket\InternetMarket\bin\Debug\AngleSharp.xml
 D:\GitHub\InternetMarket\InternetMarket\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\GitHub\InternetMarket\InternetMarket\obj\Debug\InternetMarket.AdminForm.resources
+D:\GitHub\InternetMarket\InternetMarket\obj\Debug\InternetMarket.ProductForm.resources
+D:\GitHub\InternetMarket\InternetMarket\obj\Debug\InternetMarket.OrderForm.resources
+D:\GitHub\InternetMarket\InternetMarket\obj\Debug\InternetMarket.UserForm.resources
+D:\GitHub\InternetMarket\InternetMarket\obj\Debug\InternetMarket.CustumerInfoForm.resources
+D:\GitHub\InternetMarket\InternetMarket\obj\Debug\InternetMarket.MenegerInfoForm.resources

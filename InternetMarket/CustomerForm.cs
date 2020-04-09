@@ -9,6 +9,11 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Data.Entity;
+using System.Xml;
+using System.Reflection;
+using System.Collections.Specialized;
+using System.Configuration;
+using System.Threading.Tasks;
 
 namespace InternetMarket
 {
@@ -29,6 +34,14 @@ namespace InternetMarket
             CategorySettings();
             MouseClickSettings();
             ReadProductsTopDB("Videocard", 130);
+            try
+            {
+                ReadSettings();
+            }
+            catch (Exception)
+            {
+               
+            }
         }
         #region UserData
         private void CustumerDataPanelView()
@@ -59,7 +72,7 @@ namespace InternetMarket
         }
         private async void SaveCustumerInformationMouseClick(CustomerInformation userData)
         { 
-            using (M5 db = new M5())
+            using (DataBaseIM db = new DataBaseIM())
             {
                 CustomerInformation custumerI = db.CustomersInformations.FirstOrDefault(cInfo => cInfo.Id == userData.Id);
                 string pattern = @"^[А-Яа-я]{1}[а-я]{3,20}$";
@@ -94,6 +107,8 @@ namespace InternetMarket
         }
         private void VisibleCabinetPanels(Panel p)
         {
+            panelTop.AutoScrollPosition = new Point(0, 0);
+            panelTop.AutoScroll = false;
             panelCabinet.Visible = true;
             panelOrder.Visible = false;
             panelCustumerInformation.Visible = false;
@@ -105,6 +120,8 @@ namespace InternetMarket
         }
         private void VisibleCabinetPanels()
         {
+            panelTop.AutoScrollPosition = new Point(0,0);
+            panelTop.AutoScroll = false;
             panelCabinet.Visible = true;
             panelOrder.Visible = false;
             panelCustumerInformation.Visible = false;
@@ -113,8 +130,24 @@ namespace InternetMarket
         }
         private void MouseClickOther()
         {
-            //Control[] panels = panelOrder.Controls.Find("panel", true);
-           // historyPanel.MouseClick += (s, e) => { MessageBox.Show("historyPanel"); };
+            logoM.MouseClick += (s, e) =>
+            {
+                panelTop.AutoScrollPosition = new Point(0, 0);
+                panelTop.Controls.Clear();
+                panelTop.Controls.Add(panelCabinet);
+                ReadProductsTopDB("Videocard", 30);
+            };
+            LogoIT.MouseClick += (s, e) =>
+            {
+                panelTop.AutoScrollPosition = new Point(0, 0);
+                panelTop.Controls.Clear();
+                panelTop.Controls.Add(panelCabinet);
+                ReadProductsTopDB("Processor", 30);
+            };
+            SettingsSeveButtom.MouseClick += (s, e) => SaveSettings();
+            SettingsBackgroundColor.Click += new EventHandler(SettingsBackgroundColor_MouseClick);
+            SettingsForeColor.Click += new EventHandler(SettingsBackgroundImage_MouseClick);
+            SettingsFont.Click += new EventHandler(SettingsFont_MouseClick);
             SaveCustumerInformation.MouseClick += (s, e) => SaveCustumerInformationMouseClick(custumerInfo);
             orderAceptButton.MouseClick += (s, e) => { OrderAceptButtonClick(); };
         }
@@ -135,7 +168,7 @@ namespace InternetMarket
         public void SearchClick(string Text)
         {
             
-            using (M5 db = new M5())
+            using (DataBaseIM db = new DataBaseIM())
             {   
                 var query = from prod in db.Products.AsParallel()
                             where Regex.IsMatch(prod.Title, Text, RegexOptions.IgnoreCase) || prod.Title == Text||prod.ProductCategory == Text
@@ -160,12 +193,13 @@ namespace InternetMarket
         #region History of orders
         private void HistoryOrdersPanelView()
         {
-            using (M5 db = new M5())
+            using (DataBaseIM db = new DataBaseIM())
             {
                 var query = from order in db.Orders.AsParallel()
                             where order.CustomerInformationId == custumerInfo.Id
                             select order;
                 List<Order> orderList = query.ToList();
+                mainHistoryPanel.AutoScrollPosition = new Point(0, 0);
                 if (orderList.Count > 0)
                 {
                     int heigth = 163;
@@ -213,6 +247,7 @@ namespace InternetMarket
                         orderPanel.Controls.Add(number); orderPanel.Controls.Add(dataTime); orderPanel.Controls.Add(price); orderPanel.Controls.Add(status);
                         mainHistoryPanel.Controls.Add(orderPanel);
                     }
+                    mainHistoryPanel.AutoScrollMargin = new Size(0, orderList.Count * 100);
                     Control[] panels = mainHistoryPanel.Controls.Find("historyPanel", true);
                     int j = 0;
                     foreach (var order in orderList)
@@ -226,7 +261,7 @@ namespace InternetMarket
         }
         private void OrderProductView(Order ord)
         {
-            using (M5 db = new M5())
+            using (DataBaseIM db = new DataBaseIM())
             {
                 int height = 3;
                 int autoScroolMarginHeight=0;
@@ -242,9 +277,10 @@ namespace InternetMarket
                         panel.Location = new System.Drawing.Point(3, height);
                         height += 177;
                         panel.Size = new System.Drawing.Size(327, 167);
-                        Label picture = new Label();
+                        PictureBox picture = new PictureBox();
                         picture.Location = new System.Drawing.Point(3, 3);
                         picture.Size = new System.Drawing.Size(160, 160);
+                        picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                         NumericUpDown count = new NumericUpDown();
                         count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
                         count.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -262,7 +298,7 @@ namespace InternetMarket
                         title.Size = new System.Drawing.Size(151, 110);
                         title.Font = new Font("Microsoft YaHei", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
                         //Order info
-                        picture.Image = ImageDowloader(new Uri(itemProd.ImageData));
+                        picture.BackgroundImage = ImageDowloader(new Uri(itemProd.ImageData));
                         count.Value = itemProd.QuantitySold;
                         price.Text = itemProd.Price;
                         title.Text = itemProd.Title;
@@ -278,9 +314,9 @@ namespace InternetMarket
         #region Order
         private async void OrderAceptButtonClick()
         {
-            if (OrderPanelСompletedCorrectly())
+            if (OrderPanelСompletedCorrectly(orderFamily.Text, orderName.Text, orderDad.Text, orderAddres.Text, orderPhoneNumber.Text, orderEmail.Text, orderDeliveryMetod.Text, orderPaymentMthod.Text, OrderPriceLabel.Text))
             {
-                using (M5 db = new M5())
+                using (DataBaseIM db = new DataBaseIM())
                 {
                     Control[] panels = panelOrder.Controls.Find("panel", true);
                     List<Product> dataBaseProducts = new List<Product>();
@@ -308,43 +344,83 @@ namespace InternetMarket
                     orderExamp.PaymentMthod = (orderPaymentMthod.Text == "Наличный расчёт" ? PaymentMthod.UponReceipt : (orderPaymentMthod.Text == "MasterCard" ? PaymentMthod.VisaMastercard : (orderPaymentMthod.Text == "GooglePay" ? PaymentMthod.GooglePay : orderExamp.PaymentMthod)));
                     orderExamp.DeliveryMethod = (orderDeliveryMetod.Text == "Курьером" ? DeliveryMetod.Courier : (orderDeliveryMetod.Text == "Новой почтой" ? DeliveryMetod.FromNewMail : (orderPaymentMthod.Text == "Самовывоз" ? DeliveryMetod.Pickup : orderExamp.DeliveryMethod)));
                     orderExamp.StatusOrder = StatusOrder.Accepted;
-                    //ProductOrder exempPO = new ProductOrder();
-                    //Передача ID
-                    //for (int i = 0; i < dataBaseProducts.Count; i++)
-                    //{
-                    //    exempPO.ProductId = dataBaseProducts[i].Id;
-                    //    exempPO.OrderId = orderExamp.Id;
-                    //    exempPO.NumericProduct = dataBaseProducts[i].QuantitySold;
-                    //    db.ProductOrders.Add(exempPO);
-                    //    dataBaseProducts[i].Orders.Add(orderExamp);
-                    //}
                     orderExamp.Products = dataBaseProducts;
                     db.Orders.Add(orderExamp);
                     await db.SaveChangesAsync();
+                    OutputCheckOrder(orderExamp, dataBaseProducts);
                     MessageBox.Show("Заказ принят");
+                    basketList.Clear();
                 }
             }
         }
-        private bool OrderPanelСompletedCorrectly()
+        private async void OutputCheckOrder(Order o,List<Product> listProd)
+        {
+            try
+            {
+                var file = new FileInfo("CheckOrder" + o.Id + ".txt");
+                using (StreamWriter writer = file.CreateText())
+                {
+                    await writer.WriteLineAsync("Заказ номер          : " + o.Id + "\nЦена заказа          : " + o.OrderPrice +
+                   "\nДата и время заказа  : " + o.Created + "\nИмя заказчика        : " + o.CustomerInformation.ContactFio +
+                   "\nСпособ доставки      : " + o.DeliveryMethod + "\nСпособ оплаты        : " + o.PaymentMthod +
+                   "\nСтатус заказа        : " + o.StatusOrder + "\nЦена заказа          : " + o.PaymentMthod +
+                   "\n\nСписок продуктов в заказе : " + o.Id);
+                    string product = "";
+                    for (int i = 0; i < listProd.Count; i++)
+                    {
+                        product += ("\n\nНомер      : " + (i + 1) + "\nНазвание   : " + listProd[i].Title +
+                            "\nЦена       : " + listProd[i].Price +
+                             "\nКатегория  : " + listProd[i].ProductCategory + "\n\nХарактеристика : ");
+                        using (DataBaseIM db = new DataBaseIM())
+                        {
+                            var query = from ch in db.Characteristics.AsParallel()
+                                        where ch.ProductId == listProd[i].Id
+                                        select ch;
+                            List<Characteristic> characteristicList = query.ToList();
+                            if (characteristicList.Count != 0)
+                            {
+                                string characterString = "";
+                                for (int j = 0; j < characteristicList.Count; j++)
+                                {
+                                    if (characteristicList[j].CharacteristicString.Length == 0) continue;
+                                    characterString += ("\n" + j + " : " + characteristicList[j].CharacteristicString);
+                                }
+                                product += characterString;
+                            }
+                        }
+                    }
+                    await writer.WriteLineAsync(product + "\nКонец чека номер : " + o.Id);
+                }
+                using (StreamReader reader = File.OpenText(file.ToString()))
+                {
+                    string all = await reader.ReadToEndAsync().ConfigureAwait(false);  // асинхронное чтение из файла
+                    MessageBox.Show(all);
+                }
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.ToString()) ;
+            }
+        }
+        public bool OrderPanelСompletedCorrectly(string orderFamily,string orderName,string orderDad, string orderAddres,string orderPhoneNumber,string orderEmail, string orderDeliveryMetod, string orderPaymentMthod,string OrderPriceLabel)
         {
             string pattern = @"^[А-Яа-я]{1}[а-я]{3,20}$";
-            if (Regex.IsMatch(orderFamily.Text, pattern) || Regex.IsMatch(orderName.Text, pattern) || Regex.IsMatch(orderDad.Text, pattern))
+            if (Regex.IsMatch(orderFamily, pattern) || Regex.IsMatch(orderName, pattern) || Regex.IsMatch(orderDad, pattern))
             {
                 pattern = @"^[А-Яа-я]{1}[а-я]{1}[,а-я]{1}([а-я]{0,1})?([,а-я]{0,1})?([а-я]{0,11})?([,]{0,1})? [А-Яа-я]{1}[а-я]{1,19} [0-9а-я]{1}.{1,2}([,0-9а-я]{0,1})?(.{0,1})?([0-9]{0,1})?([,0-9]{0,1})?([0-9]{0,1})?([,]{0,1})? [0-9а-я]{1,2}([.]{0,1})?( [0-9]{2})?$";
-                if (Regex.IsMatch(orderAddres.Text, pattern))
+                if (Regex.IsMatch(orderAddres, pattern))
                 {
                     pattern = @"^(?!\+.*\(.*\).*\-\-.*$)(?!\+.*\(.*\).*\-$)(([0-9]{0,12})?(\([0-9]{2})?(\)[0-9]{6})?(\+[0-9]{3,10})?(\([0-9]{2})?(\)[0-9]{3,6})?)$";
-                    if (Regex.IsMatch(orderPhoneNumber.Text, pattern))
+                    if (Regex.IsMatch(orderPhoneNumber, pattern))
                     {
                         pattern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                         @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
-                        if (Regex.IsMatch(orderEmail.Text, pattern, RegexOptions.IgnoreCase))
+                        if (Regex.IsMatch(orderEmail, pattern, RegexOptions.IgnoreCase))
                         {
-                            if (orderDeliveryMetod.Text.Length != 0&&(orderDeliveryMetod.Text== "Самовывоз"|| orderDeliveryMetod.Text == "Новой почтой"|| orderDeliveryMetod.Text == "Курьером"))
+                            if (orderDeliveryMetod.Length != 0&&(orderDeliveryMetod== "Самовывоз"|| orderDeliveryMetod == "Новой почтой"|| orderDeliveryMetod == "Курьером"))
                             {
-                                if (orderPaymentMthod.Text.Length != 0&&(orderPaymentMthod.Text== "Наличный расчёт"|| orderPaymentMthod.Text == "MasterCard"|| orderPaymentMthod.Text == "GooglePay"))
+                                if (orderPaymentMthod.Length != 0&&(orderPaymentMthod== "Наличный расчёт"|| orderPaymentMthod == "MasterCard"|| orderPaymentMthod == "GooglePay"))
                                 {
-                                    if (Convert.ToInt32(OrderPriceLabel.Text) != 0)
+                                    if (Convert.ToInt32(OrderPriceLabel) != 0)
                                     {
                                         return true;
                                     }
@@ -385,7 +461,7 @@ namespace InternetMarket
             {
                 orderAddres.Text = custumerInfo.Address;
             }
-            using (M5 db = new M5())
+            using (DataBaseIM db = new DataBaseIM())
             {
                 var query = from user in db.UsersLogins.AsParallel()
                             where user.Id == custumerInfo.UserLoginId
@@ -456,6 +532,7 @@ namespace InternetMarket
                 panelCabinet.Visible = true;
                 panelBasket.Controls.Add(panel);
             }
+            panelBasket.AutoScrollMargin = new Size(0, pL.Count * 100);
             Control[] panels = panelOrder.Controls.Find("panel", true);
             int j=0;
             int[] oneProductPriceArrey= new int[panels.Length];
@@ -497,9 +574,177 @@ namespace InternetMarket
 
         }
         #endregion
+        #region Setiings Panel
+        private ColorDialog chooseColorDialog = new ColorDialog();
+        private FontDialog chooseFontDialog = new FontDialog();
+        //private void SettingsPanelView()
+        //{
+
+
+        //}
+        private bool ReadSettings()
+        {
+            // Загрузка настроек по парам [ключ]-[значение].
+            NameValueCollection allAppSettings = ConfigurationManager.AppSettings;
+            if (allAppSettings.Count > 1)
+            {
+                //1. Цвет фона.
+                int red = Convert.ToInt32(allAppSettings["BackGroundColor.R"]);
+                int green = Convert.ToInt32(allAppSettings["BackGroundColor.G"]);
+                int blue = Convert.ToInt32(allAppSettings["BackGroundColor.B"]);
+                this.BackColor = Color.FromArgb(red, green, blue); ;
+                panelTop.BackColor = Color.FromArgb(red, green, blue);
+                mainPanel.BackColor = Color.FromArgb(red, green, blue);
+
+                //2. Цвет шрифта
+                red = Convert.ToInt32(allAppSettings["ForeColor.R"]);
+                green = Convert.ToInt32(allAppSettings["ForeColor.G"]);
+                blue = Convert.ToInt32(allAppSettings["ForeColor.B"]);
+
+                Noutbook.ForeColor = Color.FromArgb(red, green, blue);
+                Monitor.ForeColor = Color.FromArgb(red, green, blue);
+                Pc.ForeColor = Color.FromArgb(red, green, blue);
+                Perefer.ForeColor = Color.FromArgb(red, green, blue);
+                Catalog.ForeColor = Color.FromArgb(red, green, blue);
+                СomponentPc.ForeColor = Color.FromArgb(red, green, blue);
+                Exit.ForeColor = Color.FromArgb(red, green, blue);
+                CabinetButtom.ForeColor = Color.FromArgb(red, green, blue);
+                basketButtom.ForeColor = Color.FromArgb(red, green, blue);
+                //3. Шрифт
+                string userFontSet = allAppSettings["Font"];
+                //Делю userFontSet на подстроки 
+                string[] str = userFontSet.Split(new char[] { '=' });
+
+                //Добываю семейство шрифта
+                string familyName = str[1].Substring(0, str[1].IndexOf(","));
+                //Добываю размер шрифта
+                double dubleFontSize = Convert.ToDouble(str[2].Substring(0, str[2].LastIndexOf(',')));
+                float emSize = (float)dubleFontSize;
+                //Стиль
+                string subStyle = str[3].Substring(0, str[3].IndexOf(','));
+                FontStyle style = (subStyle == "Italic" ? FontStyle.Italic : (subStyle == "Bold" ? FontStyle.Bold : (subStyle == "Regular" ? FontStyle.Regular : FontStyle.Strikeout)));
+                //Добываю unit 
+                dubleFontSize = Convert.ToDouble(str[4].Substring(0, str[4].IndexOf(',')));
+                GraphicsUnit unit = (GraphicsUnit)dubleFontSize;
+                //Добываю CharSet
+                byte gdiCharSet = Convert.ToByte(str[5].Substring(0, str[5].IndexOf(',')));
+                //Добываю VerticalFont
+                bool gdiVerticalFont = Convert.ToBoolean(str[6].Substring(0, str[6].IndexOf(']')));
+
+                Font font = new Font(familyName, emSize, style, unit, gdiCharSet, gdiVerticalFont);
+                Noutbook.Font = font;
+                Monitor.Font = font;
+                Pc.Font = font;
+                Perefer.Font = font;
+                Catalog.Font = font;
+                СomponentPc.Font = font;
+                Exit.Font = font;
+                CabinetButtom.Font = font;
+                basketButtom.Font = font;
+                return true;
+            }
+            else return false;
+        }
+        private void SaveSettings()
+        {
+            XmlDocument doc = loadConfigDocument();
+            XmlNode node = doc.SelectSingleNode("//appSettings");
+            string[] keys = new string[] {
+                "BackGroundColor.R",
+                "BackGroundColor.G",
+                "BackGroundColor.B",
+                "Font",
+                "ForeColor.R",
+                "ForeColor.G",
+                "ForeColor.B",
+            };
+            string font = Noutbook.Font.ToString();
+            int index = font.IndexOf("Unit");
+            font = font.Insert(index-1, " Style=" + Noutbook.Font.Style.ToString()+",");
+            string[] values = new string[] 
+            {
+                this.BackColor.R.ToString(),
+                this.BackColor.G.ToString(),
+                this.BackColor.B.ToString(),
+                font,
+                Noutbook.ForeColor.R.ToString(),
+                Noutbook.ForeColor.G.ToString(),
+                Noutbook.ForeColor.B.ToString(),
+            };
+            for (int i = 0; i < keys.Length; i++)
+            {
+                XmlElement element = node.SelectSingleNode(string.Format("//add[@key='{0}']", keys[i])) as XmlElement;
+
+                if (element != null) { element.SetAttribute("value", values[i]); }
+                else
+                {
+                    element = doc.CreateElement("add");
+                    element.SetAttribute("key", keys[i]);
+                    element.SetAttribute("value", values[i]);
+                    node.AppendChild(element);
+                }
+            }
+            doc.Save(Assembly.GetExecutingAssembly().Location + ".config");
+            MessageBox.Show("Настройки сохранены");
+        }
+        private static XmlDocument loadConfigDocument()
+        {
+            XmlDocument doc = null;
+            try
+            {
+                doc = new XmlDocument();
+                doc.Load(Assembly.GetExecutingAssembly().Location + ".config");
+                return doc;
+            }
+            catch (System.IO.FileNotFoundException e)
+            {
+                throw new Exception("No configuration file found.", e);
+            }
+        }
+        private void SettingsBackgroundImage_MouseClick(object s, EventArgs e)
+        {
+            if (chooseColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                Noutbook.ForeColor = chooseColorDialog.Color;
+                Monitor.ForeColor = chooseColorDialog.Color;
+                Pc.ForeColor = chooseColorDialog.Color;
+                Perefer.ForeColor = chooseColorDialog.Color;
+                Catalog.ForeColor = chooseColorDialog.Color;
+                СomponentPc.ForeColor = chooseColorDialog.Color;
+                Exit.ForeColor = chooseColorDialog.Color;
+                CabinetButtom.ForeColor = chooseColorDialog.Color;
+                basketButtom.ForeColor = chooseColorDialog.Color;
+            }
+        }
+        private void SettingsBackgroundColor_MouseClick(object s, EventArgs e)
+        {
+            if (chooseColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.BackColor = chooseColorDialog.Color;
+                panelTop.BackColor = chooseColorDialog.Color;
+                mainPanel.BackColor = chooseColorDialog.Color;
+            }
+        }
+        private void SettingsFont_MouseClick(object s, EventArgs e)
+        {
+            if (chooseFontDialog.ShowDialog() == DialogResult.OK)
+            {
+                Noutbook.Font = chooseFontDialog.Font;
+                Monitor.Font = chooseFontDialog.Font;
+                Pc.Font = chooseFontDialog.Font;
+                Perefer.Font = chooseFontDialog.Font;
+                Catalog.Font = chooseFontDialog.Font;
+                СomponentPc.Font = chooseFontDialog.Font;
+                Exit.Font = chooseFontDialog.Font;
+                CabinetButtom.Font = chooseFontDialog.Font;
+                basketButtom.Font = chooseFontDialog.Font;
+            }
+        }
+        #endregion
         #region DB Download
         private void ReadOneProduct(Product p, List<Characteristic> cL)
         {
+            panelTop.AutoScroll = false;
             panelCabinet.Visible = false;
             panelTop.Controls.Clear();
             var panel = new Panel();
@@ -561,8 +806,9 @@ namespace InternetMarket
         }
         private void ReadProductsTopDB(string Category,int height)
         {
+            panelTop.AutoScroll = true;
             panelCabinet.Visible = false;
-            using (M5 db = new M5())
+            using (DataBaseIM db = new DataBaseIM())
             {
                 var query = from prod in db.Products.AsParallel()
                             where prod.ProductCategory == Category

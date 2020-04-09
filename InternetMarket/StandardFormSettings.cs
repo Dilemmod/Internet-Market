@@ -53,7 +53,7 @@ namespace InternetMarket
                         button.Name = "buttonExit";
                         button.Location = new Point(f.Width - 50, 0);
                         button.Text = "x";
-                        button.MouseClick += (sender, e) => f.Close();
+                        button.MouseClick += (sender, e) => Application.Exit();
                         button.MouseLeave += (sender, e) => {
                             button.BackColor = Color.FromArgb(45, 45, 45);
                             button.ForeColor = Color.FromArgb(167, 167, 167);

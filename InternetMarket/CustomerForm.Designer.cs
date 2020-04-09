@@ -32,11 +32,22 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelCabinet = new System.Windows.Forms.Panel();
             this.mainHistoryPanel = new System.Windows.Forms.Panel();
+            this.historyProductInOrderPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.HistorynumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.historyPriceProduct = new System.Windows.Forms.Label();
+            this.historyTitle = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.historyPanel = new System.Windows.Forms.Panel();
+            this.historyStatus = new System.Windows.Forms.Label();
+            this.historyNumber = new System.Windows.Forms.Label();
+            this.historyPrice = new System.Windows.Forms.Label();
+            this.historydateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.panelCustumerInformation = new System.Windows.Forms.Panel();
-            this.SaveCustumerInformation = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dateTimeBirth = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
@@ -58,7 +69,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.OrderPriceLabel = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.orderAceptButton = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -77,10 +87,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panelSettings = new System.Windows.Forms.Panel();
-            this.SeveSettingsButtom = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.CabinetSettingsButton = new System.Windows.Forms.Label();
             this.CabinetUserData = new System.Windows.Forms.Label();
@@ -89,16 +97,32 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.CatalogPanel = new System.Windows.Forms.Panel();
+            this.NoutbookPanel = new System.Windows.Forms.Panel();
+            this.PereferPanel = new System.Windows.Forms.Panel();
+            this.MonitorPanel = new System.Windows.Forms.Panel();
+            this.ComponentPanel = new System.Windows.Forms.Panel();
+            this.PcPanel = new System.Windows.Forms.Panel();
+            this.panelUser = new System.Windows.Forms.Panel();
+            this.Search = new System.Windows.Forms.TextBox();
+            this.logoPanel = new System.Windows.Forms.Panel();
+            this.LogoIT = new System.Windows.Forms.Label();
+            this.logoM = new System.Windows.Forms.Label();
+            this.SettingsForeColor = new System.Windows.Forms.Label();
+            this.SettingsBackgroundColor = new System.Windows.Forms.Label();
+            this.SettingsFont = new System.Windows.Forms.Label();
+            this.SettingsSeveButtom = new System.Windows.Forms.Label();
+            this.HistorypictureBox = new System.Windows.Forms.PictureBox();
+            this.SaveCustumerInformation = new System.Windows.Forms.Label();
+            this.orderAceptButton = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.СomponentPc = new System.Windows.Forms.Label();
             this.Perefer = new System.Windows.Forms.Label();
             this.Pc = new System.Windows.Forms.Label();
             this.Monitor = new System.Windows.Forms.Label();
             this.Noutbook = new System.Windows.Forms.Label();
-            this.NoutbookPanel = new System.Windows.Forms.Panel();
             this.NoutbookOfice = new System.Windows.Forms.Label();
             this.NoutbookAll = new System.Windows.Forms.Label();
             this.NoutbookGame = new System.Windows.Forms.Label();
-            this.PereferPanel = new System.Windows.Forms.Panel();
             this.Mouse = new System.Windows.Forms.Label();
             this.Keyboard = new System.Windows.Forms.Label();
             this.Capet = new System.Windows.Forms.Label();
@@ -106,12 +130,10 @@
             this.Headset = new System.Windows.Forms.Label();
             this.Camera = new System.Windows.Forms.Label();
             this.Cabel = new System.Windows.Forms.Label();
-            this.MonitorPanel = new System.Windows.Forms.Panel();
             this.MonitorOfice = new System.Windows.Forms.Label();
             this.MonitorGame = new System.Windows.Forms.Label();
             this.MonitorAll = new System.Windows.Forms.Label();
             this.MonitorDisign = new System.Windows.Forms.Label();
-            this.ComponentPanel = new System.Windows.Forms.Panel();
             this.Processor = new System.Windows.Forms.Label();
             this.Motherboard = new System.Windows.Forms.Label();
             this.Videocard = new System.Windows.Forms.Label();
@@ -119,45 +141,29 @@
             this.HardDrive = new System.Windows.Forms.Label();
             this.Case = new System.Windows.Forms.Label();
             this.Powersuply = new System.Windows.Forms.Label();
-            this.PcPanel = new System.Windows.Forms.Panel();
             this.PcOfice = new System.Windows.Forms.Label();
             this.PcGame = new System.Windows.Forms.Label();
             this.PcUltra = new System.Windows.Forms.Label();
             this.PcAll = new System.Windows.Forms.Label();
-            this.panelUser = new System.Windows.Forms.Panel();
             this.SearchButton = new System.Windows.Forms.Label();
-            this.Search = new System.Windows.Forms.TextBox();
             this.Exit = new System.Windows.Forms.Label();
             this.CabinetButtom = new System.Windows.Forms.Label();
             this.basketButtom = new System.Windows.Forms.Label();
             this.Catalog = new System.Windows.Forms.Label();
             this.Love = new System.Windows.Forms.Label();
-            this.logoPanel = new System.Windows.Forms.Panel();
-            this.LogoIT = new System.Windows.Forms.Label();
-            this.logoM = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.historydateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.historyNumber = new System.Windows.Forms.Label();
-            this.historyPrice = new System.Windows.Forms.Label();
-            this.historyPanel = new System.Windows.Forms.Panel();
-            this.historyStatus = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.historyProductInOrderPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.HistorynumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.historyPriceProduct = new System.Windows.Forms.Label();
-            this.historyTitle = new System.Windows.Forms.Label();
-            this.HistorypictureBox = new System.Windows.Forms.PictureBox();
             this.mainPanel.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelCabinet.SuspendLayout();
             this.mainHistoryPanel.SuspendLayout();
+            this.historyProductInOrderPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HistorynumericUpDown)).BeginInit();
+            this.historyPanel.SuspendLayout();
             this.panelCustumerInformation.SuspendLayout();
             this.panelOrder.SuspendLayout();
             this.panelBasket.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelSettings.SuspendLayout();
             this.CatalogPanel.SuspendLayout();
             this.NoutbookPanel.SuspendLayout();
@@ -167,11 +173,8 @@
             this.PcPanel.SuspendLayout();
             this.panelUser.SuspendLayout();
             this.logoPanel.SuspendLayout();
-            this.historyPanel.SuspendLayout();
-            this.historyProductInOrderPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HistorynumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HistorypictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -206,10 +209,10 @@
             // panelCabinet
             // 
             this.panelCabinet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panelCabinet.Controls.Add(this.panelSettings);
             this.panelCabinet.Controls.Add(this.mainHistoryPanel);
             this.panelCabinet.Controls.Add(this.panelCustumerInformation);
             this.panelCabinet.Controls.Add(this.panelOrder);
-            this.panelCabinet.Controls.Add(this.panelSettings);
             this.panelCabinet.Controls.Add(this.CabinetSettingsButton);
             this.panelCabinet.Controls.Add(this.CabinetUserData);
             this.panelCabinet.Controls.Add(this.CabinetBasket);
@@ -233,9 +236,149 @@
             this.mainHistoryPanel.Controls.Add(this.label24);
             this.mainHistoryPanel.Location = new System.Drawing.Point(0, 0);
             this.mainHistoryPanel.Name = "mainHistoryPanel";
-            this.mainHistoryPanel.Size = new System.Drawing.Size(1060, 884);
+            this.mainHistoryPanel.Size = new System.Drawing.Size(1060, 231);
             this.mainHistoryPanel.TabIndex = 99;
             this.mainHistoryPanel.Visible = false;
+            // 
+            // historyProductInOrderPanel
+            // 
+            this.historyProductInOrderPanel.Controls.Add(this.panel3);
+            this.historyProductInOrderPanel.Location = new System.Drawing.Point(690, 132);
+            this.historyProductInOrderPanel.Name = "historyProductInOrderPanel";
+            this.historyProductInOrderPanel.Size = new System.Drawing.Size(373, 752);
+            this.historyProductInOrderPanel.TabIndex = 95;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.OliveDrab;
+            this.panel3.Controls.Add(this.HistorynumericUpDown);
+            this.panel3.Controls.Add(this.historyPriceProduct);
+            this.panel3.Controls.Add(this.historyTitle);
+            this.panel3.Controls.Add(this.HistorypictureBox);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(327, 167);
+            this.panel3.TabIndex = 96;
+            this.panel3.Visible = false;
+            // 
+            // HistorynumericUpDown
+            // 
+            this.HistorynumericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.HistorynumericUpDown.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.HistorynumericUpDown.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.HistorynumericUpDown.ForeColor = System.Drawing.Color.White;
+            this.HistorynumericUpDown.Location = new System.Drawing.Point(284, 130);
+            this.HistorynumericUpDown.Name = "HistorynumericUpDown";
+            this.HistorynumericUpDown.ReadOnly = true;
+            this.HistorynumericUpDown.Size = new System.Drawing.Size(37, 21);
+            this.HistorynumericUpDown.TabIndex = 2;
+            this.HistorynumericUpDown.Tag = "";
+            // 
+            // historyPriceProduct
+            // 
+            this.historyPriceProduct.Location = new System.Drawing.Point(169, 130);
+            this.historyPriceProduct.Name = "historyPriceProduct";
+            this.historyPriceProduct.Size = new System.Drawing.Size(114, 26);
+            this.historyPriceProduct.TabIndex = 2;
+            this.historyPriceProduct.Tag = "";
+            this.historyPriceProduct.Text = "label23";
+            // 
+            // historyTitle
+            // 
+            this.historyTitle.Location = new System.Drawing.Point(169, 10);
+            this.historyTitle.Name = "historyTitle";
+            this.historyTitle.Size = new System.Drawing.Size(151, 110);
+            this.historyTitle.TabIndex = 1;
+            this.historyTitle.Text = "label26";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label25.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(565, 132);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(81, 28);
+            this.label25.TabIndex = 95;
+            this.label25.Text = "Статус";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // historyPanel
+            // 
+            this.historyPanel.Controls.Add(this.historyStatus);
+            this.historyPanel.Controls.Add(this.historyNumber);
+            this.historyPanel.Controls.Add(this.historyPrice);
+            this.historyPanel.Controls.Add(this.historydateTimePicker);
+            this.historyPanel.Location = new System.Drawing.Point(38, 163);
+            this.historyPanel.Name = "historyPanel";
+            this.historyPanel.Size = new System.Drawing.Size(633, 44);
+            this.historyPanel.TabIndex = 94;
+            this.historyPanel.Visible = false;
+            // 
+            // historyStatus
+            // 
+            this.historyStatus.BackColor = System.Drawing.Color.White;
+            this.historyStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.historyStatus.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historyStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.historyStatus.Location = new System.Drawing.Point(498, 9);
+            this.historyStatus.Name = "historyStatus";
+            this.historyStatus.Size = new System.Drawing.Size(125, 27);
+            this.historyStatus.TabIndex = 94;
+            this.historyStatus.Text = "Статус";
+            this.historyStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // historyNumber
+            // 
+            this.historyNumber.BackColor = System.Drawing.Color.White;
+            this.historyNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.historyNumber.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historyNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.historyNumber.Location = new System.Drawing.Point(9, 9);
+            this.historyNumber.Name = "historyNumber";
+            this.historyNumber.Size = new System.Drawing.Size(75, 27);
+            this.historyNumber.TabIndex = 92;
+            this.historyNumber.Text = "Номер";
+            this.historyNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // historyPrice
+            // 
+            this.historyPrice.BackColor = System.Drawing.Color.White;
+            this.historyPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.historyPrice.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.historyPrice.Location = new System.Drawing.Point(274, 9);
+            this.historyPrice.Name = "historyPrice";
+            this.historyPrice.Size = new System.Drawing.Size(218, 27);
+            this.historyPrice.TabIndex = 93;
+            this.historyPrice.Text = "Цена";
+            this.historyPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // historydateTimePicker
+            // 
+            this.historydateTimePicker.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historydateTimePicker.Location = new System.Drawing.Point(90, 9);
+            this.historydateTimePicker.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.historydateTimePicker.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.historydateTimePicker.Name = "historydateTimePicker";
+            this.historydateTimePicker.Size = new System.Drawing.Size(177, 27);
+            this.historydateTimePicker.TabIndex = 91;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(385, 132);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 28);
+            this.label18.TabIndex = 62;
+            this.label18.Text = "Цена";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -297,28 +440,11 @@
             this.panelCustumerInformation.Controls.Add(this.label30);
             this.panelCustumerInformation.Controls.Add(this.textBoxName);
             this.panelCustumerInformation.Controls.Add(this.label34);
-            this.panelCustumerInformation.Location = new System.Drawing.Point(3, 791);
+            this.panelCustumerInformation.Location = new System.Drawing.Point(3, 781);
             this.panelCustumerInformation.Name = "panelCustumerInformation";
-            this.panelCustumerInformation.Size = new System.Drawing.Size(1060, 14);
+            this.panelCustumerInformation.Size = new System.Drawing.Size(1060, 24);
             this.panelCustumerInformation.TabIndex = 97;
             this.panelCustumerInformation.Visible = false;
-            // 
-            // SaveCustumerInformation
-            // 
-            this.SaveCustumerInformation.BackColor = System.Drawing.Color.OliveDrab;
-            this.SaveCustumerInformation.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveCustumerInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveCustumerInformation.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveCustumerInformation.ForeColor = System.Drawing.Color.White;
-            this.SaveCustumerInformation.Image = global::InternetMarket.Properties.Resources.Ресурс_17;
-            this.SaveCustumerInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveCustumerInformation.Location = new System.Drawing.Point(347, 395);
-            this.SaveCustumerInformation.Name = "SaveCustumerInformation";
-            this.SaveCustumerInformation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.SaveCustumerInformation.Size = new System.Drawing.Size(373, 58);
-            this.SaveCustumerInformation.TabIndex = 92;
-            this.SaveCustumerInformation.Text = "Сохранить";
-            this.SaveCustumerInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
             // 
@@ -485,9 +611,9 @@
             this.panelOrder.Controls.Add(this.orderName);
             this.panelOrder.Controls.Add(this.panelBasket);
             this.panelOrder.Controls.Add(this.label6);
-            this.panelOrder.Location = new System.Drawing.Point(3, 842);
+            this.panelOrder.Location = new System.Drawing.Point(3, 163);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(1060, 18);
+            this.panelOrder.Size = new System.Drawing.Size(1060, 697);
             this.panelOrder.TabIndex = 63;
             this.panelOrder.Visible = false;
             // 
@@ -575,23 +701,6 @@
             this.label17.Size = new System.Drawing.Size(61, 22);
             this.label17.TabIndex = 92;
             this.label17.Text = "Итого";
-            // 
-            // orderAceptButton
-            // 
-            this.orderAceptButton.BackColor = System.Drawing.Color.OliveDrab;
-            this.orderAceptButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.orderAceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.orderAceptButton.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderAceptButton.ForeColor = System.Drawing.Color.White;
-            this.orderAceptButton.Image = global::InternetMarket.Properties.Resources.Ресурс_16;
-            this.orderAceptButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.orderAceptButton.Location = new System.Drawing.Point(35, 645);
-            this.orderAceptButton.Name = "orderAceptButton";
-            this.orderAceptButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.orderAceptButton.Size = new System.Drawing.Size(373, 58);
-            this.orderAceptButton.TabIndex = 23;
-            this.orderAceptButton.Text = "Оформить заказ";
-            this.orderAceptButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
@@ -786,14 +895,6 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "label8";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(240, 240);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -812,30 +913,16 @@
             // 
             this.panelSettings.AutoScroll = true;
             this.panelSettings.AutoScrollMinSize = new System.Drawing.Size(0, 2000);
-            this.panelSettings.Controls.Add(this.SeveSettingsButtom);
+            this.panelSettings.Controls.Add(this.SettingsFont);
+            this.panelSettings.Controls.Add(this.SettingsBackgroundColor);
+            this.panelSettings.Controls.Add(this.SettingsForeColor);
+            this.panelSettings.Controls.Add(this.SettingsSeveButtom);
             this.panelSettings.Controls.Add(this.label36);
-            this.panelSettings.Location = new System.Drawing.Point(0, 292);
+            this.panelSettings.Location = new System.Drawing.Point(0, 0);
             this.panelSettings.Name = "panelSettings";
-            this.panelSettings.Size = new System.Drawing.Size(1060, 78);
+            this.panelSettings.Size = new System.Drawing.Size(1060, 207);
             this.panelSettings.TabIndex = 98;
             this.panelSettings.Visible = false;
-            // 
-            // SeveSettingsButtom
-            // 
-            this.SeveSettingsButtom.BackColor = System.Drawing.Color.OliveDrab;
-            this.SeveSettingsButtom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SeveSettingsButtom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SeveSettingsButtom.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SeveSettingsButtom.ForeColor = System.Drawing.Color.White;
-            this.SeveSettingsButtom.Image = global::InternetMarket.Properties.Resources.Ресурс_17;
-            this.SeveSettingsButtom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SeveSettingsButtom.Location = new System.Drawing.Point(347, 285);
-            this.SeveSettingsButtom.Name = "SeveSettingsButtom";
-            this.SeveSettingsButtom.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.SeveSettingsButtom.Size = new System.Drawing.Size(373, 58);
-            this.SeveSettingsButtom.TabIndex = 92;
-            this.SeveSettingsButtom.Text = "Сохранить";
-            this.SeveSettingsButtom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label36
             // 
@@ -947,6 +1034,240 @@
             this.CatalogPanel.Size = new System.Drawing.Size(294, 400);
             this.CatalogPanel.TabIndex = 59;
             // 
+            // NoutbookPanel
+            // 
+            this.NoutbookPanel.Controls.Add(this.NoutbookOfice);
+            this.NoutbookPanel.Controls.Add(this.NoutbookAll);
+            this.NoutbookPanel.Controls.Add(this.NoutbookGame);
+            this.NoutbookPanel.Location = new System.Drawing.Point(0, 591);
+            this.NoutbookPanel.Name = "NoutbookPanel";
+            this.NoutbookPanel.Size = new System.Drawing.Size(294, 16);
+            this.NoutbookPanel.TabIndex = 49;
+            // 
+            // PereferPanel
+            // 
+            this.PereferPanel.Controls.Add(this.Mouse);
+            this.PereferPanel.Controls.Add(this.Keyboard);
+            this.PereferPanel.Controls.Add(this.Capet);
+            this.PereferPanel.Controls.Add(this.Microphone);
+            this.PereferPanel.Controls.Add(this.Headset);
+            this.PereferPanel.Controls.Add(this.Camera);
+            this.PereferPanel.Controls.Add(this.Cabel);
+            this.PereferPanel.Location = new System.Drawing.Point(0, 680);
+            this.PereferPanel.Name = "PereferPanel";
+            this.PereferPanel.Size = new System.Drawing.Size(294, 10);
+            this.PereferPanel.TabIndex = 51;
+            // 
+            // MonitorPanel
+            // 
+            this.MonitorPanel.Controls.Add(this.MonitorOfice);
+            this.MonitorPanel.Controls.Add(this.MonitorGame);
+            this.MonitorPanel.Controls.Add(this.MonitorAll);
+            this.MonitorPanel.Controls.Add(this.MonitorDisign);
+            this.MonitorPanel.Location = new System.Drawing.Point(0, 665);
+            this.MonitorPanel.Name = "MonitorPanel";
+            this.MonitorPanel.Size = new System.Drawing.Size(294, 10);
+            this.MonitorPanel.TabIndex = 50;
+            // 
+            // ComponentPanel
+            // 
+            this.ComponentPanel.Controls.Add(this.Processor);
+            this.ComponentPanel.Controls.Add(this.Motherboard);
+            this.ComponentPanel.Controls.Add(this.Videocard);
+            this.ComponentPanel.Controls.Add(this.Ram);
+            this.ComponentPanel.Controls.Add(this.HardDrive);
+            this.ComponentPanel.Controls.Add(this.Case);
+            this.ComponentPanel.Controls.Add(this.Powersuply);
+            this.ComponentPanel.Location = new System.Drawing.Point(0, 635);
+            this.ComponentPanel.Name = "ComponentPanel";
+            this.ComponentPanel.Size = new System.Drawing.Size(294, 12);
+            this.ComponentPanel.TabIndex = 52;
+            // 
+            // PcPanel
+            // 
+            this.PcPanel.Controls.Add(this.PcOfice);
+            this.PcPanel.Controls.Add(this.PcGame);
+            this.PcPanel.Controls.Add(this.PcUltra);
+            this.PcPanel.Controls.Add(this.PcAll);
+            this.PcPanel.Location = new System.Drawing.Point(0, 613);
+            this.PcPanel.Name = "PcPanel";
+            this.PcPanel.Size = new System.Drawing.Size(294, 13);
+            this.PcPanel.TabIndex = 53;
+            // 
+            // panelUser
+            // 
+            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panelUser.Controls.Add(this.SearchButton);
+            this.panelUser.Controls.Add(this.Search);
+            this.panelUser.Controls.Add(this.Exit);
+            this.panelUser.Controls.Add(this.CabinetButtom);
+            this.panelUser.Controls.Add(this.basketButtom);
+            this.panelUser.Controls.Add(this.Catalog);
+            this.panelUser.Controls.Add(this.Love);
+            this.panelUser.Location = new System.Drawing.Point(0, 70);
+            this.panelUser.Name = "panelUser";
+            this.panelUser.Size = new System.Drawing.Size(1320, 80);
+            this.panelUser.TabIndex = 1;
+            // 
+            // Search
+            // 
+            this.Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Search.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Search.ForeColor = System.Drawing.Color.White;
+            this.Search.Location = new System.Drawing.Point(315, 22);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(407, 35);
+            this.Search.TabIndex = 2;
+            // 
+            // logoPanel
+            // 
+            this.logoPanel.Controls.Add(this.LogoIT);
+            this.logoPanel.Controls.Add(this.logoM);
+            this.logoPanel.Location = new System.Drawing.Point(0, 0);
+            this.logoPanel.Name = "logoPanel";
+            this.logoPanel.Size = new System.Drawing.Size(1320, 70);
+            this.logoPanel.TabIndex = 0;
+            // 
+            // LogoIT
+            // 
+            this.LogoIT.AutoSize = true;
+            this.LogoIT.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoIT.Font = new System.Drawing.Font("Microsoft YaHei", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoIT.ForeColor = System.Drawing.Color.OliveDrab;
+            this.LogoIT.Location = new System.Drawing.Point(12, 9);
+            this.LogoIT.Name = "LogoIT";
+            this.LogoIT.Size = new System.Drawing.Size(61, 52);
+            this.LogoIT.TabIndex = 2;
+            this.LogoIT.Text = "IT";
+            // 
+            // logoM
+            // 
+            this.logoM.AutoSize = true;
+            this.logoM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoM.Font = new System.Drawing.Font("Microsoft YaHei", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.logoM.Location = new System.Drawing.Point(66, 9);
+            this.logoM.Name = "logoM";
+            this.logoM.Size = new System.Drawing.Size(198, 52);
+            this.logoM.TabIndex = 3;
+            this.logoM.Text = "MARKET";
+            // 
+            // SettingsForeColor
+            // 
+            this.SettingsForeColor.BackColor = System.Drawing.Color.White;
+            this.SettingsForeColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsForeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsForeColor.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsForeColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.SettingsForeColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsForeColor.Location = new System.Drawing.Point(201, 193);
+            this.SettingsForeColor.Name = "SettingsForeColor";
+            this.SettingsForeColor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.SettingsForeColor.Size = new System.Drawing.Size(632, 58);
+            this.SettingsForeColor.TabIndex = 93;
+            this.SettingsForeColor.Text = "Изменить цвет  шрифта";
+            this.SettingsForeColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SettingsBackgroundColor
+            // 
+            this.SettingsBackgroundColor.BackColor = System.Drawing.Color.White;
+            this.SettingsBackgroundColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsBackgroundColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsBackgroundColor.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsBackgroundColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.SettingsBackgroundColor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsBackgroundColor.Location = new System.Drawing.Point(201, 102);
+            this.SettingsBackgroundColor.Name = "SettingsBackgroundColor";
+            this.SettingsBackgroundColor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.SettingsBackgroundColor.Size = new System.Drawing.Size(632, 58);
+            this.SettingsBackgroundColor.TabIndex = 94;
+            this.SettingsBackgroundColor.Text = "Изменить цвет фона";
+            this.SettingsBackgroundColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SettingsFont
+            // 
+            this.SettingsFont.BackColor = System.Drawing.Color.White;
+            this.SettingsFont.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsFont.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsFont.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.SettingsFont.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsFont.Location = new System.Drawing.Point(201, 289);
+            this.SettingsFont.Name = "SettingsFont";
+            this.SettingsFont.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.SettingsFont.Size = new System.Drawing.Size(632, 58);
+            this.SettingsFont.TabIndex = 95;
+            this.SettingsFont.Text = "Изменить шрифт";
+            this.SettingsFont.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SettingsSeveButtom
+            // 
+            this.SettingsSeveButtom.BackColor = System.Drawing.Color.OliveDrab;
+            this.SettingsSeveButtom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsSeveButtom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsSeveButtom.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsSeveButtom.ForeColor = System.Drawing.Color.White;
+            this.SettingsSeveButtom.Image = global::InternetMarket.Properties.Resources.Ресурс_17;
+            this.SettingsSeveButtom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsSeveButtom.Location = new System.Drawing.Point(333, 380);
+            this.SettingsSeveButtom.Name = "SettingsSeveButtom";
+            this.SettingsSeveButtom.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.SettingsSeveButtom.Size = new System.Drawing.Size(373, 58);
+            this.SettingsSeveButtom.TabIndex = 92;
+            this.SettingsSeveButtom.Text = "Сохранить";
+            this.SettingsSeveButtom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HistorypictureBox
+            // 
+            this.HistorypictureBox.Location = new System.Drawing.Point(3, 3);
+            this.HistorypictureBox.Name = "HistorypictureBox";
+            this.HistorypictureBox.Size = new System.Drawing.Size(160, 160);
+            this.HistorypictureBox.TabIndex = 0;
+            this.HistorypictureBox.TabStop = false;
+            // 
+            // SaveCustumerInformation
+            // 
+            this.SaveCustumerInformation.BackColor = System.Drawing.Color.OliveDrab;
+            this.SaveCustumerInformation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveCustumerInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveCustumerInformation.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveCustumerInformation.ForeColor = System.Drawing.Color.White;
+            this.SaveCustumerInformation.Image = global::InternetMarket.Properties.Resources.Ресурс_17;
+            this.SaveCustumerInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SaveCustumerInformation.Location = new System.Drawing.Point(347, 395);
+            this.SaveCustumerInformation.Name = "SaveCustumerInformation";
+            this.SaveCustumerInformation.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.SaveCustumerInformation.Size = new System.Drawing.Size(373, 58);
+            this.SaveCustumerInformation.TabIndex = 92;
+            this.SaveCustumerInformation.Text = "Сохранить";
+            this.SaveCustumerInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // orderAceptButton
+            // 
+            this.orderAceptButton.BackColor = System.Drawing.Color.OliveDrab;
+            this.orderAceptButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.orderAceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderAceptButton.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderAceptButton.ForeColor = System.Drawing.Color.White;
+            this.orderAceptButton.Image = global::InternetMarket.Properties.Resources.Ресурс_16;
+            this.orderAceptButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.orderAceptButton.Location = new System.Drawing.Point(35, 645);
+            this.orderAceptButton.Name = "orderAceptButton";
+            this.orderAceptButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.orderAceptButton.Size = new System.Drawing.Size(373, 58);
+            this.orderAceptButton.TabIndex = 23;
+            this.orderAceptButton.Text = "Оформить заказ";
+            this.orderAceptButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 240);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // СomponentPc
             // 
             this.СomponentPc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -1032,16 +1353,6 @@
             this.Noutbook.Text = "Ноутбуки";
             this.Noutbook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // NoutbookPanel
-            // 
-            this.NoutbookPanel.Controls.Add(this.NoutbookOfice);
-            this.NoutbookPanel.Controls.Add(this.NoutbookAll);
-            this.NoutbookPanel.Controls.Add(this.NoutbookGame);
-            this.NoutbookPanel.Location = new System.Drawing.Point(0, 556);
-            this.NoutbookPanel.Name = "NoutbookPanel";
-            this.NoutbookPanel.Size = new System.Drawing.Size(294, 16);
-            this.NoutbookPanel.TabIndex = 49;
-            // 
             // NoutbookOfice
             // 
             this.NoutbookOfice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
@@ -1090,20 +1401,6 @@
             this.NoutbookGame.TabIndex = 46;
             this.NoutbookGame.Text = "Для игр";
             this.NoutbookGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PereferPanel
-            // 
-            this.PereferPanel.Controls.Add(this.Mouse);
-            this.PereferPanel.Controls.Add(this.Keyboard);
-            this.PereferPanel.Controls.Add(this.Capet);
-            this.PereferPanel.Controls.Add(this.Microphone);
-            this.PereferPanel.Controls.Add(this.Headset);
-            this.PereferPanel.Controls.Add(this.Camera);
-            this.PereferPanel.Controls.Add(this.Cabel);
-            this.PereferPanel.Location = new System.Drawing.Point(0, 680);
-            this.PereferPanel.Name = "PereferPanel";
-            this.PereferPanel.Size = new System.Drawing.Size(294, 10);
-            this.PereferPanel.TabIndex = 51;
             // 
             // Mouse
             // 
@@ -1217,17 +1514,6 @@
             this.Cabel.Text = "Кабели";
             this.Cabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MonitorPanel
-            // 
-            this.MonitorPanel.Controls.Add(this.MonitorOfice);
-            this.MonitorPanel.Controls.Add(this.MonitorGame);
-            this.MonitorPanel.Controls.Add(this.MonitorAll);
-            this.MonitorPanel.Controls.Add(this.MonitorDisign);
-            this.MonitorPanel.Location = new System.Drawing.Point(0, 665);
-            this.MonitorPanel.Name = "MonitorPanel";
-            this.MonitorPanel.Size = new System.Drawing.Size(294, 10);
-            this.MonitorPanel.TabIndex = 50;
-            // 
             // MonitorOfice
             // 
             this.MonitorOfice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
@@ -1291,20 +1577,6 @@
             this.MonitorDisign.TabIndex = 43;
             this.MonitorDisign.Text = "Для дизайна";
             this.MonitorDisign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ComponentPanel
-            // 
-            this.ComponentPanel.Controls.Add(this.Processor);
-            this.ComponentPanel.Controls.Add(this.Motherboard);
-            this.ComponentPanel.Controls.Add(this.Videocard);
-            this.ComponentPanel.Controls.Add(this.Ram);
-            this.ComponentPanel.Controls.Add(this.HardDrive);
-            this.ComponentPanel.Controls.Add(this.Case);
-            this.ComponentPanel.Controls.Add(this.Powersuply);
-            this.ComponentPanel.Location = new System.Drawing.Point(0, 635);
-            this.ComponentPanel.Name = "ComponentPanel";
-            this.ComponentPanel.Size = new System.Drawing.Size(294, 12);
-            this.ComponentPanel.TabIndex = 52;
             // 
             // Processor
             // 
@@ -1418,17 +1690,6 @@
             this.Powersuply.Text = "Блоки питания";
             this.Powersuply.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PcPanel
-            // 
-            this.PcPanel.Controls.Add(this.PcOfice);
-            this.PcPanel.Controls.Add(this.PcGame);
-            this.PcPanel.Controls.Add(this.PcUltra);
-            this.PcPanel.Controls.Add(this.PcAll);
-            this.PcPanel.Location = new System.Drawing.Point(0, 613);
-            this.PcPanel.Name = "PcPanel";
-            this.PcPanel.Size = new System.Drawing.Size(294, 13);
-            this.PcPanel.TabIndex = 53;
-            // 
             // PcOfice
             // 
             this.PcOfice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(158)))), ((int)(((byte)(161)))));
@@ -1493,21 +1754,6 @@
             this.PcAll.Text = "Все ПК";
             this.PcAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelUser
-            // 
-            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panelUser.Controls.Add(this.SearchButton);
-            this.panelUser.Controls.Add(this.Search);
-            this.panelUser.Controls.Add(this.Exit);
-            this.panelUser.Controls.Add(this.CabinetButtom);
-            this.panelUser.Controls.Add(this.basketButtom);
-            this.panelUser.Controls.Add(this.Catalog);
-            this.panelUser.Controls.Add(this.Love);
-            this.panelUser.Location = new System.Drawing.Point(0, 70);
-            this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(1320, 80);
-            this.panelUser.TabIndex = 1;
-            // 
             // SearchButton
             // 
             this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1520,17 +1766,6 @@
             this.SearchButton.Size = new System.Drawing.Size(57, 48);
             this.SearchButton.TabIndex = 55;
             this.SearchButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // Search
-            // 
-            this.Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.Search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Search.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Search.ForeColor = System.Drawing.Color.White;
-            this.Search.Location = new System.Drawing.Point(315, 22);
-            this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(407, 35);
-            this.Search.TabIndex = 2;
             // 
             // Exit
             // 
@@ -1610,187 +1845,6 @@
             this.Love.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Love.Visible = false;
             // 
-            // logoPanel
-            // 
-            this.logoPanel.Controls.Add(this.LogoIT);
-            this.logoPanel.Controls.Add(this.logoM);
-            this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(1320, 70);
-            this.logoPanel.TabIndex = 0;
-            // 
-            // LogoIT
-            // 
-            this.LogoIT.AutoSize = true;
-            this.LogoIT.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoIT.Font = new System.Drawing.Font("Microsoft YaHei", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoIT.ForeColor = System.Drawing.Color.OliveDrab;
-            this.LogoIT.Location = new System.Drawing.Point(12, 9);
-            this.LogoIT.Name = "LogoIT";
-            this.LogoIT.Size = new System.Drawing.Size(61, 52);
-            this.LogoIT.TabIndex = 2;
-            this.LogoIT.Text = "IT";
-            // 
-            // logoM
-            // 
-            this.logoM.AutoSize = true;
-            this.logoM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoM.Font = new System.Drawing.Font("Microsoft YaHei", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.logoM.Location = new System.Drawing.Point(66, 9);
-            this.logoM.Name = "logoM";
-            this.logoM.Size = new System.Drawing.Size(198, 52);
-            this.logoM.TabIndex = 3;
-            this.logoM.Text = "MARKET";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(385, 132);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 28);
-            this.label18.TabIndex = 62;
-            this.label18.Text = "Цена";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // historydateTimePicker
-            // 
-            this.historydateTimePicker.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.historydateTimePicker.Location = new System.Drawing.Point(90, 9);
-            this.historydateTimePicker.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
-            this.historydateTimePicker.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
-            this.historydateTimePicker.Name = "historydateTimePicker";
-            this.historydateTimePicker.Size = new System.Drawing.Size(177, 27);
-            this.historydateTimePicker.TabIndex = 91;
-            // 
-            // historyNumber
-            // 
-            this.historyNumber.BackColor = System.Drawing.Color.White;
-            this.historyNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.historyNumber.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.historyNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.historyNumber.Location = new System.Drawing.Point(9, 9);
-            this.historyNumber.Name = "historyNumber";
-            this.historyNumber.Size = new System.Drawing.Size(75, 27);
-            this.historyNumber.TabIndex = 92;
-            this.historyNumber.Text = "Номер";
-            this.historyNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // historyPrice
-            // 
-            this.historyPrice.BackColor = System.Drawing.Color.White;
-            this.historyPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.historyPrice.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.historyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.historyPrice.Location = new System.Drawing.Point(274, 9);
-            this.historyPrice.Name = "historyPrice";
-            this.historyPrice.Size = new System.Drawing.Size(218, 27);
-            this.historyPrice.TabIndex = 93;
-            this.historyPrice.Text = "Цена";
-            this.historyPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // historyPanel
-            // 
-            this.historyPanel.Controls.Add(this.historyStatus);
-            this.historyPanel.Controls.Add(this.historyNumber);
-            this.historyPanel.Controls.Add(this.historyPrice);
-            this.historyPanel.Controls.Add(this.historydateTimePicker);
-            this.historyPanel.Location = new System.Drawing.Point(38, 163);
-            this.historyPanel.Name = "historyPanel";
-            this.historyPanel.Size = new System.Drawing.Size(633, 44);
-            this.historyPanel.TabIndex = 94;
-            this.historyPanel.Visible = false;
-            // 
-            // historyStatus
-            // 
-            this.historyStatus.BackColor = System.Drawing.Color.White;
-            this.historyStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.historyStatus.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.historyStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.historyStatus.Location = new System.Drawing.Point(498, 9);
-            this.historyStatus.Name = "historyStatus";
-            this.historyStatus.Size = new System.Drawing.Size(125, 27);
-            this.historyStatus.TabIndex = 94;
-            this.historyStatus.Text = "Статус";
-            this.historyStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label25.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(565, 132);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(81, 28);
-            this.label25.TabIndex = 95;
-            this.label25.Text = "Статус";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // historyProductInOrderPanel
-            // 
-            this.historyProductInOrderPanel.Controls.Add(this.panel3);
-            this.historyProductInOrderPanel.Location = new System.Drawing.Point(690, 132);
-            this.historyProductInOrderPanel.Name = "historyProductInOrderPanel";
-            this.historyProductInOrderPanel.Size = new System.Drawing.Size(373, 752);
-            this.historyProductInOrderPanel.TabIndex = 95;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.OliveDrab;
-            this.panel3.Controls.Add(this.HistorynumericUpDown);
-            this.panel3.Controls.Add(this.historyPriceProduct);
-            this.panel3.Controls.Add(this.historyTitle);
-            this.panel3.Controls.Add(this.HistorypictureBox);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(327, 167);
-            this.panel3.TabIndex = 96;
-            this.panel3.Visible = false;
-            // 
-            // HistorynumericUpDown
-            // 
-            this.HistorynumericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.HistorynumericUpDown.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HistorynumericUpDown.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.HistorynumericUpDown.ForeColor = System.Drawing.Color.White;
-            this.HistorynumericUpDown.Location = new System.Drawing.Point(284, 130);
-            this.HistorynumericUpDown.Name = "HistorynumericUpDown";
-            this.HistorynumericUpDown.ReadOnly = true;
-            this.HistorynumericUpDown.Size = new System.Drawing.Size(37, 21);
-            this.HistorynumericUpDown.TabIndex = 2;
-            this.HistorynumericUpDown.Tag = "";
-            // 
-            // historyPriceProduct
-            // 
-            this.historyPriceProduct.Location = new System.Drawing.Point(169, 130);
-            this.historyPriceProduct.Name = "historyPriceProduct";
-            this.historyPriceProduct.Size = new System.Drawing.Size(114, 26);
-            this.historyPriceProduct.TabIndex = 2;
-            this.historyPriceProduct.Tag = "";
-            this.historyPriceProduct.Text = "label23";
-            // 
-            // historyTitle
-            // 
-            this.historyTitle.Location = new System.Drawing.Point(169, 10);
-            this.historyTitle.Name = "historyTitle";
-            this.historyTitle.Size = new System.Drawing.Size(151, 110);
-            this.historyTitle.TabIndex = 1;
-            this.historyTitle.Text = "label26";
-            // 
-            // HistorypictureBox
-            // 
-            this.HistorypictureBox.Location = new System.Drawing.Point(3, 3);
-            this.HistorypictureBox.Name = "HistorypictureBox";
-            this.HistorypictureBox.Size = new System.Drawing.Size(160, 160);
-            this.HistorypictureBox.TabIndex = 0;
-            this.HistorypictureBox.TabStop = false;
-            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1806,6 +1860,10 @@
             this.panelCabinet.ResumeLayout(false);
             this.mainHistoryPanel.ResumeLayout(false);
             this.mainHistoryPanel.PerformLayout();
+            this.historyProductInOrderPanel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.HistorynumericUpDown)).EndInit();
+            this.historyPanel.ResumeLayout(false);
             this.panelCustumerInformation.ResumeLayout(false);
             this.panelCustumerInformation.PerformLayout();
             this.panelOrder.ResumeLayout(false);
@@ -1813,7 +1871,6 @@
             this.panelBasket.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelSettings.ResumeLayout(false);
             this.CatalogPanel.ResumeLayout(false);
             this.NoutbookPanel.ResumeLayout(false);
@@ -1825,11 +1882,8 @@
             this.panelUser.PerformLayout();
             this.logoPanel.ResumeLayout(false);
             this.logoPanel.PerformLayout();
-            this.historyPanel.ResumeLayout(false);
-            this.historyProductInOrderPanel.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.HistorynumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HistorypictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1937,7 +1991,7 @@
         private System.Windows.Forms.Panel mainHistoryPanel;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel panelSettings;
-        private System.Windows.Forms.Label SeveSettingsButtom;
+        private System.Windows.Forms.Label SettingsSeveButtom;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox orderAddres;
@@ -1956,5 +2010,8 @@
         private System.Windows.Forms.Label historyPriceProduct;
         private System.Windows.Forms.Label historyTitle;
         private System.Windows.Forms.PictureBox HistorypictureBox;
+        private System.Windows.Forms.Label SettingsFont;
+        private System.Windows.Forms.Label SettingsBackgroundColor;
+        private System.Windows.Forms.Label SettingsForeColor;
     }
 }

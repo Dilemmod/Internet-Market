@@ -52,6 +52,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
@@ -79,6 +80,42 @@
     <Compile Include="AccountLoginForm.Designer.cs">
       <DependentUpon>AccountLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDB\CustumerInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDB\CustumerInfoForm.Designer.cs">
+      <DependentUpon>CustumerInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDB\MenegerInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDB\MenegerInfoForm.Designer.cs">
+      <DependentUpon>MenegerInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDB\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDB\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDB\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDB\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDB\ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDB\ProductForm.Designer.cs">
+      <DependentUpon>ProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,8 +133,26 @@
     <EmbeddedResource Include="AccountLoginForm.resx">
       <DependentUpon>AccountLoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDB\CustumerInfoForm.resx">
+      <DependentUpon>CustumerInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDB\MenegerInfoForm.resx">
+      <DependentUpon>MenegerInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDB\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDB\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDB\ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

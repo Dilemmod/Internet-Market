@@ -15,18 +15,19 @@ namespace InternetMarket
         [STAThread]
         static void Main()
         {
-            using (M5 db = new M5())
+            using (DataBaseIM db = new DataBaseIM())
             {
-                var queryCustumerInfo = from custInfo in db.CustomersInformations.AsParallel()
-                                        where custInfo.UserLoginId== 1
-                                        select custInfo;
-                List<CustomerInformation> cInfoList = queryCustumerInfo.ToList();
+                //var queryCustumerInfo = from custInfo in db.CustomersInformations.AsParallel()
+                //                        where custInfo.UserLoginId== 1
+                //                        select custInfo;
+                //List<CustomerInformation> cInfoList = queryCustumerInfo.ToList();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                if(cInfoList.Count!=0)
-                 Application.Run(new CustomerForm(cInfoList[0]));
-                else
-                 Application.Run(new AccountLoginForm());
+                Application.Run(new AccountLoginForm());
+                //if(cInfoList.Count!=0)
+                // Application.Run(new CustomerForm(cInfoList[0]));
+                //else
+                // Application.Run(new AccountLoginForm());
             }
         }
     }
