@@ -29,7 +29,7 @@ namespace InternetMarket
             StandardFormSettings standartForm = new StandardFormSettings(this);
             this.BackColor = Color.FromArgb(255, 255, 255);
             mainPanel.BackColor = Color.FromArgb(255, 255, 255);
-            mainPanel.Location = new Point(300, 40);
+            mainPanel.Location = new Point((this.Width - 1320) / 2, 40);
             mainPanel.Size = new Size(this.Width - (this.Width-1320), this.Height - (this.Height - 994));
             CategorySettings();
             MouseClickSettings();
@@ -40,7 +40,6 @@ namespace InternetMarket
             }
             catch (Exception)
             {
-               
             }
         }
         #region UserData

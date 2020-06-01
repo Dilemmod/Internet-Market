@@ -20,12 +20,28 @@ namespace InternetMarket
         {
             InitializeComponent();
             db = new DataBaseIM();
+            Exit.MouseClick += (s, e) => { this.Hide(); AccountLoginForm ac = new AccountLoginForm(); ac.Show(); };
             //Border,Size,Location Form
             StandardFormSettings standartForm = new StandardFormSettings(this);
             this.BackColor = Color.FromArgb(255, 255, 255);
             MainPanel.BackColor = Color.FromArgb(255, 255, 255);
-            MainPanel.Location = new Point(300, 40);
+            MainPanel.Location = new Point((this.Width-1320)/2, 40);
             MainPanel.Size = new Size(this.Width - (this.Width - 1320), this.Height - (this.Height - 994));
+
+            panelProducts.Visible = true; panelOrders.Visible = false; panelDataCustumer.Visible = false; panelDataMenegers.Visible = false; panelUsers.Visible = false;
+            panelProducts.Location = new Point(294, 150);
+            panelProducts.Size = new Size(1026, 850);
+            db.Products.Load();
+            dataGridViewPdoructs.DataSource = db.Products.Local.ToBindingList();
+            dataGridViewPdoructs.Columns[0].Width = 50;
+            dataGridViewPdoructs.Columns[1].Width = 400;
+            dataGridViewPdoructs.Columns[2].Width = 50;
+            dataGridViewPdoructs.Columns[3].Width = 65;
+            dataGridViewPdoructs.Columns[4].Width = 300;
+            dataGridViewPdoructs.Columns[5].Width = 100;
+
+
+
         }
         #region Products
         private async void buttonAdd_Click(object sender, EventArgs e)
@@ -57,11 +73,22 @@ namespace InternetMarket
                 bool converted = Int32.TryParse(dataGridViewPdoructs[0, index].Value.ToString(), out id);
                 if (converted == false)
                     return;
-
                 Product prod = db.Products.Find(id);
+                while (true)
+                {
+                    Characteristic ch = db.Characteristics.FirstOrDefault(с => с.ProductId == id);
+                    if (ch != null)
+                    {
+                        db.Characteristics.Remove(ch);
+                        await db.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
                 db.Products.Remove(prod);
                 await db.SaveChangesAsync();
-
                 MessageBox.Show("Продукт удален");
             }
         }
@@ -523,16 +550,71 @@ namespace InternetMarket
                 if (CheckUser(uFAdd.EmailTextBox.Text))
                 {
                     UsersLogin user = new UsersLogin();
-
                     user.Login = uFAdd.LoginTextBox.Text;
                     user.Password = uFAdd.PasswordTextBox.Text;
                     user.Mail = uFAdd.EmailTextBox.Text;
-                    user.Admin = true;
-
+                    user.Admin = uFAdd.AdminCheck.Checked;
                     db.UsersLogins.Add(user);
                     await db.SaveChangesAsync();
                     MessageBox.Show("Новый объект добавлен");
-                    return;
+                    if (user.Admin == true)
+                    {
+                        MenegerInfoForm pFormAdd = new MenegerInfoForm();
+                        DialogResult result;
+                        while (true)
+                        {
+                            result = pFormAdd.ShowDialog(this);
+
+                            if (result == DialogResult.Cancel)
+                                return;
+                            if (CheckUser(pFormAdd.textBoxFullName.Text, pFormAdd.textBoxAddres.Text, pFormAdd.textBoxPhone.Text))
+                            {
+                                MenedjerInformation prod = new MenedjerInformation();
+                                prod.Status = pFormAdd.textBoxStatus.Text;
+                                prod.Address = pFormAdd.textBoxAddres.Text;
+                                prod.FullName = pFormAdd.textBoxFullName.Text;
+                                prod.PhoneNumber = pFormAdd.textBoxPhone.Text;
+                                UsersLogin us = db.UsersLogins.FirstOrDefault(u => (u.Login == user.Login || u.Mail == user.Mail) && u.Password ==user.Password);
+                                if (us != null)
+                                { prod.UserLoginId = us.Id; }
+                                prod.DataOfBirth = pFormAdd.dateTimeCreated.Value.Day + "," + pFormAdd.dateTimeCreated.Value.Month + "," + pFormAdd.dateTimeCreated.Value.Year;
+                                db.MenedjersInformations.Add(prod);
+                                await db.SaveChangesAsync();
+                                MessageBox.Show("Информация о менеджер добавлина");
+                                return;
+                            }
+                        }
+                    }
+                    else if(user.Admin == false)
+                    {
+                        CustumerInfoForm pFormAdd = new CustumerInfoForm();
+                        DialogResult result;
+                        while (true)
+                        {
+                            result = pFormAdd.ShowDialog(this);
+
+                            if (result == DialogResult.Cancel)
+                                return;
+                            if (CheckUser(pFormAdd.textBoxFullName.Text, pFormAdd.textBoxAddres.Text, pFormAdd.textBoxPhone.Text))
+                            {
+
+                                CustomerInformation prod = new CustomerInformation();
+
+                                prod.Address = pFormAdd.textBoxAddres.Text;
+                                prod.ContactFio = pFormAdd.textBoxFullName.Text;
+                                prod.Phone = pFormAdd.textBoxPhone.Text;
+                                prod.UserLoginId = Convert.ToInt32(pFormAdd.numericUpDownUserID.Value);
+                                prod.DataOfBirth = pFormAdd.dataTimeBirth.Value.Day + "," + pFormAdd.dataTimeBirth.Value.Month + "," + pFormAdd.dataTimeBirth.Value.Year;
+                                UsersLogin us = db.UsersLogins.FirstOrDefault(u => (u.Login == user.Login || u.Mail == user.Mail) && u.Password ==user.Password);
+                                if (us != null)
+                                { prod.UserLoginId = us.Id; }
+                                db.CustomersInformations.Add(prod);
+                                await db.SaveChangesAsync();
+                                MessageBox.Show("Информация о клиенте добавлина");
+                                return;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -578,12 +660,28 @@ namespace InternetMarket
                 bool converted = Int32.TryParse(dataGridViewUsers[0, index].Value.ToString(), out id);
                 if (converted == false)
                     return;
+                UsersLogin user = db.UsersLogins.Find(id);
+                if (user.Admin == true)
+                {
+                    MenedjerInformation mInfo = db.MenedjersInformations.FirstOrDefault(mI => mI.UserLoginId == user.Id);
+                    if (mInfo != null)
+                    {
+                        db.MenedjersInformations.Remove(mInfo);
+                    }
+                }
+                else
+                {
+                    CustomerInformation cInfo = db.CustomersInformations.FirstOrDefault(cI => cI.UserLoginId == user.Id);
+                    if (cInfo != null)
+                    {
+                        db.CustomersInformations.Remove(cInfo);
+                    }
+                }
 
-                UsersLogin prod = db.UsersLogins.Find(id);
-                db.UsersLogins.Remove(prod);
+                db.UsersLogins.Remove(user);
                 await db.SaveChangesAsync();
 
-                MessageBox.Show("Продукт удален");
+                MessageBox.Show("User удален");
             }
         }
     }

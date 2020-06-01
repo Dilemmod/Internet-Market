@@ -17,17 +17,9 @@ namespace InternetMarket
         {
             using (DataBaseIM db = new DataBaseIM())
             {
-                //var queryCustumerInfo = from custInfo in db.CustomersInformations.AsParallel()
-                //                        where custInfo.UserLoginId== 1
-                //                        select custInfo;
-                //List<CustomerInformation> cInfoList = queryCustumerInfo.ToList();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new AccountLoginForm());
-                //if(cInfoList.Count!=0)
-                // Application.Run(new CustomerForm(cInfoList[0]));
-                //else
-                // Application.Run(new AccountLoginForm());
             }
         }
     }

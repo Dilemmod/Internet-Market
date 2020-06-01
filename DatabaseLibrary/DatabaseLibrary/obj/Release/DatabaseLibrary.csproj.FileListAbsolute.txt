@@ -1,0 +1,11 @@
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\bin\Release\DatabaseLibrary.dll.config
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\bin\Release\DatabaseLibrary.dll
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\bin\Release\DatabaseLibrary.pdb
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\bin\Release\EntityFramework.dll
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\bin\Release\EntityFramework.SqlServer.dll
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\bin\Release\EntityFramework.xml
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\bin\Release\EntityFramework.SqlServer.xml
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\obj\Release\DatabaseLibrary.csprojAssemblyReference.cache
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\obj\Release\DatabaseLibrary.csproj.CopyComplete
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\obj\Release\DatabaseLibrary.dll
+D:\GitHub\Internet-Market\DatabaseLibrary\DatabaseLibrary\obj\Release\DatabaseLibrary.pdb

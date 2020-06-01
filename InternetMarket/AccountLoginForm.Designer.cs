@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.checkBoxUserSave = new System.Windows.Forms.CheckBox();
             this.labelApp = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.loginName = new System.Windows.Forms.TextBox();
@@ -50,6 +51,7 @@
             this.registrationToLogin = new System.Windows.Forms.Label();
             this.registrationQuest = new System.Windows.Forms.Label();
             this.registrationMail = new System.Windows.Forms.TextBox();
+            this.buttonFiller_DB = new System.Windows.Forms.Button();
             this.loginPanel.SuspendLayout();
             this.registrationPanel.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +59,7 @@
             // loginPanel
             // 
             this.loginPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.loginPanel.Controls.Add(this.checkBoxUserSave);
             this.loginPanel.Controls.Add(this.labelApp);
             this.loginPanel.Controls.Add(this.label2);
             this.loginPanel.Controls.Add(this.loginName);
@@ -69,6 +72,18 @@
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(563, 359);
             this.loginPanel.TabIndex = 90;
+            // 
+            // checkBoxUserSave
+            // 
+            this.checkBoxUserSave.AutoSize = true;
+            this.checkBoxUserSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.checkBoxUserSave.ForeColor = System.Drawing.Color.White;
+            this.checkBoxUserSave.Location = new System.Drawing.Point(385, 70);
+            this.checkBoxUserSave.Name = "checkBoxUserSave";
+            this.checkBoxUserSave.Size = new System.Drawing.Size(136, 24);
+            this.checkBoxUserSave.TabIndex = 78;
+            this.checkBoxUserSave.Text = "Запомнить меня";
+            this.checkBoxUserSave.UseVisualStyleBackColor = true;
             // 
             // labelApp
             // 
@@ -323,18 +338,35 @@
             this.registrationMail.Size = new System.Drawing.Size(480, 32);
             this.registrationMail.TabIndex = 83;
             // 
+            // buttonFiller_DB
+            // 
+            this.buttonFiller_DB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.buttonFiller_DB.FlatAppearance.BorderSize = 0;
+            this.buttonFiller_DB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFiller_DB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonFiller_DB.ForeColor = System.Drawing.Color.Ivory;
+            this.buttonFiller_DB.Location = new System.Drawing.Point(322, 377);
+            this.buttonFiller_DB.Name = "buttonFiller_DB";
+            this.buttonFiller_DB.Size = new System.Drawing.Size(253, 120);
+            this.buttonFiller_DB.TabIndex = 78;
+            this.buttonFiller_DB.Text = "Заполнить или очистить базу данных";
+            this.buttonFiller_DB.UseVisualStyleBackColor = false;
+            this.buttonFiller_DB.Click += new System.EventHandler(this.buttonFiller_DB_Click);
+            // 
             // AccountLoginForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1314, 666);
+            this.Controls.Add(this.buttonFiller_DB);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.registrationPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AccountLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForDataBaseIM";
+            this.Load += new System.EventHandler(this.AccountLoginForm_Load);
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             this.registrationPanel.ResumeLayout(false);
@@ -367,6 +399,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox registrationConfirmPassword;
+        private System.Windows.Forms.Button buttonFiller_DB;
+        private System.Windows.Forms.CheckBox checkBoxUserSave;
     }
 }
 

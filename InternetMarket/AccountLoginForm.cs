@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -8,12 +10,15 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using System.Xml;
 using DatabaseLibrary;
 
 namespace InternetMarket
@@ -31,6 +36,7 @@ namespace InternetMarket
             PanelSettings();
             loginButton.MouseClick += loginButton_MouseClick;
             registrationButton.MouseClick += registrationButton_MouseClick;
+            buttonFiller_DB.Location =new Point(this.Width-300,this.Height-150);
             
 
         }
@@ -118,6 +124,17 @@ namespace InternetMarket
                         CustomerInformation cInfo = db.CustomersInformations.FirstOrDefault(cI=>cI.UserLoginId == user.Id);
                         if (cInfo!=null)
                         {
+                            if (checkBoxUserSave.Checked)
+                            {
+                                try
+                                {
+                                    SaveSettings();
+                                }
+                                catch (Exception exd)
+                                {
+                                    MessageBox.Show("Error Server: " + exd);
+                                }
+                            }
                             this.Hide();
                             CustomerForm cF = new CustomerForm(cInfo);
                             cF.Show();
@@ -127,9 +144,21 @@ namespace InternetMarket
                             MenedjerInformation mInfo = db.MenedjersInformations.FirstOrDefault(mI => mI.UserLoginId == user.Id);
                             if (mInfo!=null)
                             {
+                                if (checkBoxUserSave.Checked)
+                                {
+                                    try
+                                    {
+                                        SaveSettings();
+                                    }
+                                    catch (Exception exd)
+                                    {
+                                        MessageBox.Show("Error Server: " + exd);
+                                    }
+                                }
                                 this.Hide();
                                 AdminForm aF = new AdminForm();
                                 aF.Show();
+                                
                             }
                             else MessageBox.Show("Не найден");
                         }
@@ -143,6 +172,7 @@ namespace InternetMarket
                 MessageBox.Show("Error Server: "+ex);
             }
         }
+
         private bool UserExist()
         {
             try
@@ -193,5 +223,90 @@ namespace InternetMarket
             registrationToLogin.MouseLeave += (s, e) => registrationToLogin.ForeColor = Color.FromArgb(107, 142, 35);
         }
         #endregion
+
+        private void buttonFiller_DB_Click(object sender, EventArgs e)
+        {
+            string appPath = Application.ExecutablePath;
+            string nead =appPath.Replace(@"InternetMarket\InternetMarket\bin\Debug\InternetMarket.exe", @"InternetMarket\Redactor_DataBaseIM\bin\Debug\netcoreapp3.0\Redactor_DataBaseIM.exe");
+            Process p = Process.Start(nead);
+            p.WaitForExit();
+        }
+        private bool CheckSettings()
+        {
+            NameValueCollection allAppSettings = ConfigurationManager.AppSettings;
+            if (allAppSettings.Count > 1)
+            {
+                string userLogin = allAppSettings["UserLogin"];
+                string userPass = allAppSettings["UserPass"];
+                if (userLogin != null || userPass != null|| userLogin != "Test" || userPass != "123")
+                {
+                    return true;
+                }
+                else return false;
+            }
+            else return false;
+        }
+        private void ReadSettings()
+        {
+            NameValueCollection allAppSettings = ConfigurationManager.AppSettings;
+            if (allAppSettings.Count > 1)
+            {
+                //1.
+                string userLogin = allAppSettings["UserLogin"];
+                string userPass = allAppSettings["UserPass"];
+                loginName.Text = userLogin;
+                loginPassword.Text = userPass;
+            }
+        }
+        private void SaveSettings()
+        {
+            XmlDocument doc = loadConfigDocument();
+            XmlNode node = doc.SelectSingleNode("//appSettings");
+            string[] keys = new string[] {
+                "UserLogin",
+                "UserPass",
+            };
+            string[] values = new string[]
+            {
+                loginName.Text,
+                loginPassword.Text,
+            };
+            for (int i = 0; i < keys.Length; i++)
+            {
+                XmlElement element = node.SelectSingleNode(string.Format("//add[@key='{0}']", keys[i])) as XmlElement;
+
+                if (element != null) { element.SetAttribute("value", values[i]); }
+                else
+                {
+                    element = doc.CreateElement("add");
+                    element.SetAttribute("key", keys[i]);
+                    element.SetAttribute("value", values[i]);
+                    node.AppendChild(element);
+                }
+            }
+            doc.Save(Assembly.GetExecutingAssembly().Location + ".config");
+            MessageBox.Show("Логин и пароль сохранены");
+        }
+        private static XmlDocument loadConfigDocument()
+        {
+            XmlDocument doc = null;
+            try
+            {
+                doc = new XmlDocument();
+                doc.Load(Assembly.GetExecutingAssembly().Location + ".config");
+                return doc;
+            }
+            catch (System.IO.FileNotFoundException e)
+            {
+                throw new Exception("No configuration file found.", e);
+            }
+        }
+        private void AccountLoginForm_Load(object sender, EventArgs e)
+        {
+            if (CheckSettings())
+            {
+                ReadSettings();
+            }
+        }
     }
 }
