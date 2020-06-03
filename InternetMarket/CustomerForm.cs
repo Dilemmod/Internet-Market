@@ -79,12 +79,12 @@ namespace InternetMarket
                     custumerI.ContactFio = textBoxFamily.Text+"," + textBoxName.Text+"," + textBoxDad.Text;
                 else if (custumerI.ContactFio==null&&(textBoxFamily.Text.Length!=0 || textBoxName.Text.Length != 0 || textBoxDad.Text.Length != 0))
                      MessageBox.Show("Для изменения Имени,Фамилии или Отчества нужно чтобы все эти поля были заполнены и имели вид обычных слов ");
-                pattern = @"[А - я]{ 1}[а-я]+[.,].[А-я]{1}[а-я]+\s?[д]?[д.]?[д]?[о]?[м]?\s?[0 - 9]{0,5}\s?[.,].\s?[к]?[к.]?[кв]?\s?[0 - 9]{0,5}";
+                pattern = @"^[А-я]{1}[а-я]+[.,].[А-я]{1}[а-я]+\s?[д]?[д.]?[д]?[о]?[м]?\s?[0-9]{0,5}\s?[.,].\s?[к]?[к.]?[кв]?\s?[0-9]{0,5}$";
                 if (Regex.IsMatch(textBoxAddres.Text, pattern,RegexOptions.IgnorePatternWhitespace))
                     custumerI.Address = textBoxAddres.Text;
                 else if(custumerI.Address == null && (textBoxAddres.Text.Length != 0))
-                    MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица НомерДома, НомерКвартиры");
-                pattern = @"[+0-9]?[0-9]{5,12}";
+                    MessageBox.Show("Адрес в не верном формате, верный формат: \nГород, Улица НомерДома, НомерКвартиры");
+                pattern = @"^[+0-9]?[0-9]{5,12}$";
                 if (Regex.IsMatch(textBoxPhoneNumber.Text, pattern))
                     custumerI.Phone = textBoxPhoneNumber.Text;
                 else if (custumerI.Phone == null && (textBoxPhoneNumber.Text.Length != 0))

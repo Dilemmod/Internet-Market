@@ -160,11 +160,11 @@ namespace InternetMarket
                                 aF.Show();
                                 
                             }
-                            else MessageBox.Show("Не найден");
+                            else MessageBox.Show("NOT found");
                         }
                     }
                     else
-                        MessageBox.Show("Такой пользователь не найден");
+                        MessageBox.Show("No such user found");
                 }
             }
             catch(Exception ex)
@@ -285,7 +285,7 @@ namespace InternetMarket
                 }
             }
             doc.Save(Assembly.GetExecutingAssembly().Location + ".config");
-            MessageBox.Show("Логин и пароль сохранены");
+            MessageBox.Show("Username and password saved");
         }
         private static XmlDocument loadConfigDocument()
         {

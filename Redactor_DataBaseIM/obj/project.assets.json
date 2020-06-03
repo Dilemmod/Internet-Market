@@ -1207,11 +1207,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Computer\\InternetMarket\\Redactor_DataBaseIM\\Redactor_DataBaseIM.csproj",
+      "projectUniqueName": "D:\\GitHub\\InternetMarket\\Redactor_DataBaseIM\\Redactor_DataBaseIM.csproj",
       "projectName": "Redactor_DataBaseIM",
-      "projectPath": "D:\\Computer\\InternetMarket\\Redactor_DataBaseIM\\Redactor_DataBaseIM.csproj",
+      "projectPath": "D:\\GitHub\\InternetMarket\\Redactor_DataBaseIM\\Redactor_DataBaseIM.csproj",
       "packagesPath": "C:\\Users\\yevta\\.nuget\\packages\\",
-      "outputPath": "D:\\Computer\\InternetMarket\\Redactor_DataBaseIM\\obj\\",
+      "outputPath": "D:\\GitHub\\InternetMarket\\Redactor_DataBaseIM\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -1231,8 +1231,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "D:\\Computer\\InternetMarket\\DatabaseLibrary\\DatabaseLibrary\\DatabaseLibrary.csproj": {
-              "projectPath": "D:\\Computer\\InternetMarket\\DatabaseLibrary\\DatabaseLibrary\\DatabaseLibrary.csproj"
+            "D:\\GitHub\\InternetMarket\\DatabaseLibrary\\DatabaseLibrary\\DatabaseLibrary.csproj": {
+              "projectPath": "D:\\GitHub\\InternetMarket\\DatabaseLibrary\\DatabaseLibrary\\DatabaseLibrary.csproj"
             }
           }
         }

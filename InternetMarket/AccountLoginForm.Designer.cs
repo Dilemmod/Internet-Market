@@ -80,9 +80,9 @@
             this.checkBoxUserSave.ForeColor = System.Drawing.Color.White;
             this.checkBoxUserSave.Location = new System.Drawing.Point(385, 70);
             this.checkBoxUserSave.Name = "checkBoxUserSave";
-            this.checkBoxUserSave.Size = new System.Drawing.Size(136, 24);
+            this.checkBoxUserSave.Size = new System.Drawing.Size(142, 24);
             this.checkBoxUserSave.TabIndex = 78;
-            this.checkBoxUserSave.Text = "Запомнить меня";
+            this.checkBoxUserSave.Text = "Запам\'ятати мене";
             this.checkBoxUserSave.UseVisualStyleBackColor = true;
             // 
             // labelApp
@@ -93,9 +93,9 @@
             this.labelApp.ForeColor = System.Drawing.Color.Transparent;
             this.labelApp.Location = new System.Drawing.Point(231, 28);
             this.labelApp.Name = "labelApp";
-            this.labelApp.Size = new System.Drawing.Size(85, 36);
+            this.labelApp.Size = new System.Drawing.Size(76, 36);
             this.labelApp.TabIndex = 71;
-            this.labelApp.Text = "Вход";
+            this.labelApp.Text = "Вхід";
             // 
             // label2
             // 
@@ -127,9 +127,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(41, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 20);
+            this.label1.Size = new System.Drawing.Size(190, 20);
             this.label1.TabIndex = 76;
-            this.label1.Text = "Имя пользователя или почта";
+            this.label1.Text = "Ім\'я користувача або пошта";
             // 
             // loginButton
             // 
@@ -137,12 +137,12 @@
             this.loginButton.FlatAppearance.BorderSize = 0;
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginButton.ForeColor = System.Drawing.Color.Ivory;
+            this.loginButton.ForeColor = System.Drawing.Color.LavenderBlush;
             this.loginButton.Location = new System.Drawing.Point(41, 239);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(480, 47);
             this.loginButton.TabIndex = 72;
-            this.loginButton.Text = "Войти";
+            this.loginButton.Text = "Увійти";
             this.loginButton.UseVisualStyleBackColor = false;
             // 
             // loginQuest
@@ -151,11 +151,11 @@
             this.loginQuest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.loginQuest.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginQuest.ForeColor = System.Drawing.Color.White;
-            this.loginQuest.Location = new System.Drawing.Point(139, 310);
+            this.loginQuest.Location = new System.Drawing.Point(113, 309);
             this.loginQuest.Name = "loginQuest";
-            this.loginQuest.Size = new System.Drawing.Size(161, 20);
+            this.loginQuest.Size = new System.Drawing.Size(187, 20);
             this.loginQuest.TabIndex = 75;
-            this.loginQuest.Text = "Нужна учётная запись?";
+            this.loginQuest.Text = "Потрібен обліковий запис?";
             // 
             // loginToRegistration
             // 
@@ -166,9 +166,9 @@
             this.loginToRegistration.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
             this.loginToRegistration.Location = new System.Drawing.Point(306, 310);
             this.loginToRegistration.Name = "loginToRegistration";
-            this.loginToRegistration.Size = new System.Drawing.Size(141, 20);
+            this.loginToRegistration.Size = new System.Drawing.Size(118, 20);
             this.loginToRegistration.TabIndex = 73;
-            this.loginToRegistration.Text = "Зарегистрироваться";
+            this.loginToRegistration.Text = "Зареєструватися";
             // 
             // loginPassword
             // 
@@ -219,9 +219,9 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(41, 279);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 20);
+            this.label7.Size = new System.Drawing.Size(158, 20);
             this.label7.TabIndex = 92;
-            this.label7.Text = "Подтверждение пароля";
+            this.label7.Text = "Підтвердження пароля";
             // 
             // label9
             // 
@@ -253,9 +253,9 @@
             this.label8.ForeColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(89, 31);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(384, 36);
+            this.label8.Size = new System.Drawing.Size(397, 36);
             this.label8.TabIndex = 80;
-            this.label8.Text = "Создать учётную запись ";
+            this.label8.Text = "Створити обліковий запис";
             // 
             // registrationName
             // 
@@ -275,9 +275,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(41, 153);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 20);
+            this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 87;
-            this.label4.Text = "Почта";
+            this.label4.Text = "Пошта";
             // 
             // registrationButton
             // 
@@ -290,7 +290,7 @@
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(480, 47);
             this.registrationButton.TabIndex = 81;
-            this.registrationButton.Text = "Зарегистрироваться";
+            this.registrationButton.Text = "Зареєструватися";
             this.registrationButton.UseVisualStyleBackColor = false;
             // 
             // label5
@@ -301,9 +301,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(41, 90);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 20);
+            this.label5.Size = new System.Drawing.Size(119, 20);
             this.label5.TabIndex = 86;
-            this.label5.Text = "Имя пользователя";
+            this.label5.Text = "Ім\'я користувача";
             // 
             // registrationToLogin
             // 
@@ -313,9 +313,9 @@
             this.registrationToLogin.ForeColor = System.Drawing.Color.OliveDrab;
             this.registrationToLogin.Location = new System.Drawing.Point(320, 436);
             this.registrationToLogin.Name = "registrationToLogin";
-            this.registrationToLogin.Size = new System.Drawing.Size(48, 20);
+            this.registrationToLogin.Size = new System.Drawing.Size(51, 20);
             this.registrationToLogin.TabIndex = 82;
-            this.registrationToLogin.Text = "Войти";
+            this.registrationToLogin.Text = "Увійти";
             // 
             // registrationQuest
             // 
@@ -325,9 +325,9 @@
             this.registrationQuest.ForeColor = System.Drawing.Color.White;
             this.registrationQuest.Location = new System.Drawing.Point(137, 436);
             this.registrationQuest.Name = "registrationQuest";
-            this.registrationQuest.Size = new System.Drawing.Size(177, 20);
+            this.registrationQuest.Size = new System.Drawing.Size(165, 20);
             this.registrationQuest.TabIndex = 85;
-            this.registrationQuest.Text = "Уже есть учётная запись?";
+            this.registrationQuest.Text = "Вже є обліковий запис?";
             // 
             // registrationMail
             // 
@@ -349,7 +349,7 @@
             this.buttonFiller_DB.Name = "buttonFiller_DB";
             this.buttonFiller_DB.Size = new System.Drawing.Size(253, 120);
             this.buttonFiller_DB.TabIndex = 78;
-            this.buttonFiller_DB.Text = "Заполнить или очистить базу данных";
+            this.buttonFiller_DB.Text = "Заповнити або очистити базу даних";
             this.buttonFiller_DB.UseVisualStyleBackColor = false;
             this.buttonFiller_DB.Click += new System.EventHandler(this.buttonFiller_DB_Click);
             // 

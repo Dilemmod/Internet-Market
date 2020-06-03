@@ -121,33 +121,33 @@ namespace Redactor_DataBaseIM
             {
                 List<string> ReferenceByTelemart = new List<string>()
                 {
-                    "https://telemart.ua/processor/",
-                    "https://telemart.ua/motherboard/",
-                    "https://telemart.ua/videocard/",
-                    "https://telemart.ua/ram/",
-                    "https://telemart.ua/hard-drive/",
-                    "https://telemart.ua/case/",
-                    "https://telemart.ua/powersuply/",
+                    "https://telemart.ua/ua/processor/",
+                    "https://telemart.ua/ua/motherboard/",
+                    "https://telemart.ua/ua/videocard/",
+                    "https://telemart.ua/ua/ram/",
+                    "https://telemart.ua/ua/hard-drive/",
+                    "https://telemart.ua/ua/case/",
+                    "https://telemart.ua/ua/powersuply/",
 
-                    "https://telemart.ua/mouse/",
-                    "https://telemart.ua/keyboards/",
-                    "https://telemart.ua/kovriki/",
-                    "https://telemart.ua/microphones/",
-                    "https://telemart.ua/earphones/",
-                    "https://telemart.ua/web-cam/",
-                    "https://telemart.ua/hdmi-dvi-vga-cables/",
+                    "https://telemart.ua/ua/ua/mouse/",
+                    "https://telemart.ua/ua/keyboards/",
+                    "https://telemart.ua/ua/kovriki/",
+                    "https://telemart.ua/ua/microphones/",
+                    "https://telemart.ua/ua/earphones/",
+                    "https://telemart.ua/ua/web-cam/",
+                    "https://telemart.ua/ua/hdmi-dvi-vga-cables/",
 
-                    "https://telemart.ua/monitors/filter/for-office-tasks/",
-                    "https://telemart.ua/monitors/filter/for-game/",
-                    "https://telemart.ua/monitors/filter/work-with-graphics/",
-                    "https://telemart.ua/monitors/",
+                    "https://telemart.ua/ua/monitors/filter/for-office-tasks/",
+                    "https://telemart.ua/ua/monitors/filter/for-game/",
+                    "https://telemart.ua/ua/monitors/filter/work-with-graphics/",
+                    "https://telemart.ua/ua/monitors/",
 
-                    "https://telemart.ua/laptops/filter/1920x1080/",
-                    "https://telemart.ua/laptops/filter/geforce-1080/geforce-1660-ti/geforce-2060/geforce-2070/geforce-2080/",
-                    "https://telemart.ua/laptops/",
+                    "https://telemart.ua/ua/laptops/filter/1920x1080/",
+                    "https://telemart.ua/ua/laptops/filter/geforce-1080/geforce-1660-ti/geforce-2060/geforce-2070/geforce-2080/",
+                    "https://telemart.ua/ua/laptops/",
 
-                    "https://telemart.ua/pc/filter/t-gaming/",
-                    "https://telemart.ua/pc/filter/t-ultra/",
+                    "https://telemart.ua/ua/pc/filter/t-gaming/",
+                    "https://telemart.ua/ua/pc/filter/t-ultra/",
                 };
                 List<string> CategoriesNameForReferance = new List<string>()
             {
@@ -168,7 +168,7 @@ namespace Redactor_DataBaseIM
                     mInfo.UserLogin = uL;
                     db.UsersLogins.Add(uL);
                     db.MenedjersInformations.Add(mInfo);
-                    Console.WriteLine("Менеджер Admin добавлен в бызу данных\n");
+                    Console.WriteLine("Менеджер Admin доданий в базу даних\n");
                     for (int l = 0; l < ReferenceByTelemart.Count; l++)
                     {
                         List<Product> productList = new List<Product>();

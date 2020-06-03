@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PoSXUVxz2B16bbxHyWjWuGOWMK1azzxQU3rhUpONESTGBza7AEdfYQnkh0mg809pLr8YFJ6RoQZhg5otAmNmEQ==",
+  "dgSpecHash": "JBXaGZGueZ1ZjfYzVr2/pPIV/merZ9G0dtD95Rlkq2cxsM3UwfV9HkXbHnC2hR6PNkq1bPtx93MfQcpnBuicPg==",
   "success": true,
-  "projectFilePath": "D:\\Computer\\InternetMarket\\Redactor_DataBaseIM\\Redactor_DataBaseIM.csproj",
+  "projectFilePath": "D:\\GitHub\\InternetMarket\\Redactor_DataBaseIM\\Redactor_DataBaseIM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yevta\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
     "C:\\Users\\yevta\\.nuget\\packages\\entityframework\\6.4.0\\entityframework.6.4.0.nupkg.sha512",

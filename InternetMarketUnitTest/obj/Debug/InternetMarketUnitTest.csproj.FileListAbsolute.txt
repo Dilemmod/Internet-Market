@@ -52,3 +52,4 @@ D:\GitHub\Internet-Market\InternetMarketUnitTest\obj\Debug\InternetMarketUnitTes
 D:\GitHub\Internet-Market\InternetMarketUnitTest\obj\Debug\InternetMarketUnitTest.csproj.CopyComplete
 D:\GitHub\Internet-Market\InternetMarketUnitTest\obj\Debug\InternetMarketUnitTest.dll
 D:\GitHub\Internet-Market\InternetMarketUnitTest\obj\Debug\InternetMarketUnitTest.pdb
+D:\GitHub\InternetMarket\InternetMarketUnitTest\obj\Debug\InternetMarketUnitTest.csproj.CoreCompileInputs.cache

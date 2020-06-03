@@ -61,7 +61,7 @@ namespace InternetMarket
             db.Products.Add(prod);
             await db.SaveChangesAsync();
 
-            MessageBox.Show("Новый продукт добавлен");
+            MessageBox.Show("New Object Added");
         }
 
         private async void buttonDel_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace InternetMarket
                 }
                 db.Products.Remove(prod);
                 await db.SaveChangesAsync();
-                MessageBox.Show("Продукт удален");
+                MessageBox.Show("object deleted");
             }
         }
         private async void buttonChange_Click(object sender, EventArgs e)
@@ -121,7 +121,7 @@ namespace InternetMarket
 
                 await db.SaveChangesAsync();
                 dataGridViewPdoructs.Refresh();
-                MessageBox.Show("Продукт обновлен");
+                MessageBox.Show("object updated");
             }
         }
 
@@ -174,7 +174,7 @@ namespace InternetMarket
             db.Orders.Add(prod);
             await db.SaveChangesAsync();
 
-            MessageBox.Show("Новый объект добавлен");
+            MessageBox.Show("New Object Added");
         }
 
         private async void OrdersChangeButton_Click(object sender, EventArgs e)
@@ -210,7 +210,7 @@ namespace InternetMarket
 
                 await db.SaveChangesAsync();
                 dataGridViewOrders.Refresh();
-                MessageBox.Show("объект обновлен");
+                MessageBox.Show("object updated");
             }
         }
 
@@ -229,7 +229,7 @@ namespace InternetMarket
                 db.Orders.Remove(prod);
                 await db.SaveChangesAsync();
 
-                MessageBox.Show("Объект удален");
+                MessageBox.Show("object deleted");
             }
 
         }
@@ -271,7 +271,7 @@ namespace InternetMarket
                     UsersLogin uL = db.UsersLogins.FirstOrDefault(u => u.Id == prod.UserLoginId);
                     if (uL == null)
                     {
-                        MessageBox.Show("Для добавления информации о клиенте нужно создать акаунт");
+                        MessageBox.Show("To add customer information you need to create an account");
                         UserForm uFAdd = new UserForm();
                         DialogResult ress;
                         while (true)
@@ -293,7 +293,7 @@ namespace InternetMarket
                                 prod.UserLogin = user;
                                 db.CustomersInformations.Add(prod);
                                 await db.SaveChangesAsync();
-                                MessageBox.Show("Новый клиент и информация о нём добавлина");
+                                MessageBox.Show("New client and information about him");
                                 return;
                             }
                         }
@@ -302,7 +302,7 @@ namespace InternetMarket
                     {
                         db.CustomersInformations.Add(prod);
                         await db.SaveChangesAsync();
-                        MessageBox.Show("Информация о клиенте добавлина");
+                        MessageBox.Show("New Object Added");
                         return;
                     }
                 }
@@ -340,7 +340,7 @@ namespace InternetMarket
 
                 await db.SaveChangesAsync();
                 dataGridViewCustumers.Refresh();
-                MessageBox.Show("объект обновлен");
+                MessageBox.Show("object updated");
             }
 
         }
@@ -359,7 +359,7 @@ namespace InternetMarket
                 db.CustomersInformations.Remove(prod);
                 await db.SaveChangesAsync();
 
-                MessageBox.Show("Объект удален");
+                MessageBox.Show("object deleted");
             }
         }
 
@@ -402,7 +402,7 @@ namespace InternetMarket
                     UsersLogin uL = db.UsersLogins.FirstOrDefault(u => u.Id == prod.UserLoginId);
                     if (uL == null)
                     {
-                        MessageBox.Show("Для добавления информации о менеджере нужно создать акаунт");
+                        MessageBox.Show("To add manager information you need to create an account");
                         UserForm uFAdd = new UserForm();
                         DialogResult ress;
                         while (true)
@@ -423,7 +423,7 @@ namespace InternetMarket
                                 prod.UserLogin = user;
                                 db.MenedjersInformations.Add(prod);
                                 await db.SaveChangesAsync();
-                                MessageBox.Show("Новый менеджер и информация о нём добавлина");
+                                MessageBox.Show("New manager and information about him");
                                 return;
                             }
                         }
@@ -432,7 +432,7 @@ namespace InternetMarket
                     {
                         db.MenedjersInformations.Add(prod);
                         await db.SaveChangesAsync();
-                        MessageBox.Show("Информация о менеджер добавлина");
+                        MessageBox.Show("New Object Added");
                         return;
                     }
                 }
@@ -451,11 +451,11 @@ namespace InternetMarket
                     {
                         return true;
                     }
-                    else { MessageBox.Show("Номер теефона в не верном формате, верный формат: 380953162181"); return false; };
+                    else { MessageBox.Show("The phone number is in the wrong format, the correct format: 380953162181"); return false; };
                 }
-                else { MessageBox.Show("Адрес в не верном формате, верный формат: Город, Улица НомерДома, НомерКвартиры"); return false; };
+                else { MessageBox.Show("The address is in the wrong format, the correct format is: City, Street House Number, Apartment Number"); return false; };
             }
-            else { MessageBox.Show("Имя,Фамилия и Отчество в не правильном формате, верный формат: Фамилия,Имя,Отчество "); return false; };
+            else { MessageBox.Show("First Name, Last Name and Patronymic in the wrong format, correct format: Last Name, First Name, Patronymic"); return false; };
         }
         public bool CheckUser(string Email)
         {   
@@ -465,7 +465,7 @@ namespace InternetMarket
              {
                      return true;
              }
-             else { MessageBox.Show("Почта в не верном формате, верный формат: jonah921@gmail.com"); return false; };
+             else { MessageBox.Show("Mail in the wrong format, the correct format: jonah921@gmail.com"); return false; };
         }
 
 
@@ -502,7 +502,7 @@ namespace InternetMarket
 
                 await db.SaveChangesAsync();
                 dataGridViewMenegers.Refresh();
-                MessageBox.Show("объект обновлен");
+                MessageBox.Show("object updated");
             }
         }
 
@@ -519,7 +519,7 @@ namespace InternetMarket
                 MenedjerInformation prod = db.MenedjersInformations.Find(id);
                 db.MenedjersInformations.Remove(prod);
                 await db.SaveChangesAsync();
-                MessageBox.Show("Объект удален");
+                MessageBox.Show("object deleted");
             }
 
         }
@@ -556,7 +556,7 @@ namespace InternetMarket
                     user.Admin = uFAdd.AdminCheck.Checked;
                     db.UsersLogins.Add(user);
                     await db.SaveChangesAsync();
-                    MessageBox.Show("Новый объект добавлен");
+                    MessageBox.Show("New Object Added");
                     if (user.Admin == true)
                     {
                         MenegerInfoForm pFormAdd = new MenegerInfoForm();
@@ -580,7 +580,7 @@ namespace InternetMarket
                                 prod.DataOfBirth = pFormAdd.dateTimeCreated.Value.Day + "," + pFormAdd.dateTimeCreated.Value.Month + "," + pFormAdd.dateTimeCreated.Value.Year;
                                 db.MenedjersInformations.Add(prod);
                                 await db.SaveChangesAsync();
-                                MessageBox.Show("Информация о менеджер добавлина");
+                                MessageBox.Show("New Object Added");
                                 return;
                             }
                         }
@@ -610,7 +610,7 @@ namespace InternetMarket
                                 { prod.UserLoginId = us.Id; }
                                 db.CustomersInformations.Add(prod);
                                 await db.SaveChangesAsync();
-                                MessageBox.Show("Информация о клиенте добавлина");
+                                MessageBox.Show("New Object Added");
                                 return;
                             }
                         }
@@ -647,7 +647,7 @@ namespace InternetMarket
 
                 await db.SaveChangesAsync();
                 dataGridViewUsers.Refresh();
-                MessageBox.Show("объект обновлен");
+                MessageBox.Show("object updated");
             }
         }
 
@@ -681,7 +681,7 @@ namespace InternetMarket
                 db.UsersLogins.Remove(user);
                 await db.SaveChangesAsync();
 
-                MessageBox.Show("User удален");
+                MessageBox.Show("object deleted");
             }
         }
     }
